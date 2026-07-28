@@ -1,4 +1,5 @@
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Ropes — The Plan</title>
 <style>
   :root{
@@ -60,7 +61,6 @@
   li{margin-bottom:8px}
   li::marker{color:var(--ink-faint)}
 
-  .lede{font-size:16.5px;color:var(--ink)}
 
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:18px 0}
 
@@ -112,65 +112,6 @@
   .toggle .pill.active{background:var(--brand-red);color:#fff}
   body.uv-vibe .toggle .pill.active{background:var(--uv);color:#fff}
 
-  .iso-stage{
-    position:relative;height:400px;display:flex;align-items:center;justify-content:center;
-    background:#050403;border-radius:12px;border:1px solid var(--line);
-    perspective:1300px;overflow:hidden;transition:background .4s ease;
-  }
-  body.uv-vibe .iso-stage{background:#07030f}
-
-  .iso-room{
-    position:relative;width:320px;height:260px;
-    transform-style:preserve-3d;
-    transform:rotateX(55deg) rotateZ(-42deg);
-  }
-  @media (max-width:480px){
-    .iso-room{transform:scale(0.62) rotateX(55deg) rotateZ(-42deg)}
-  }
-  .iso-floor{
-    position:absolute;inset:0;background:#1c1712;
-    border:1px solid #453a2c;transform-style:preserve-3d;
-    box-shadow:0 0 40px rgba(0,0,0,.6) inset;
-  }
-  body.uv-vibe .iso-floor{background:#0e0a1c;border-color:var(--uv)}
-
-  .iso-wall{position:absolute;background:#170f0a;border:1px solid #6b5a42}
-  body.uv-vibe .iso-wall{background:#0f0824;border-color:var(--uv)}
-  .iso-wall-back{
-    width:320px;height:150px;left:0;top:0;
-    transform-origin:top;transform:rotateX(90deg);
-  }
-  .iso-wall-side{
-    width:260px;height:150px;left:0;top:0;
-    transform-origin:left;transform:rotateY(-90deg);
-  }
-
-  @media (max-width:480px){.wall-quote{display:none}}
-  .wall-quote{
-    position:absolute;text-align:center;
-    font-weight:900;text-transform:uppercase;font-size:20px;line-height:1.2;
-    color:var(--brand-red);opacity:.95;text-shadow:0 2px 8px rgba(0,0,0,.8);
-    pointer-events:none;
-  }
-  .wall-quote.small{font-size:13px;width:110px}
-  body.uv-vibe .wall-quote{color:var(--uv);text-shadow:0 0 10px var(--uv);opacity:1}
-
-  .iso-block{
-    position:absolute;width:34px;height:34px;border-radius:8px;
-    background:#2a231a;border:1px solid #5a4c38;
-    display:flex;align-items:center;justify-content:center;
-    font-weight:800;font-size:13px;color:var(--ink);
-    transform:translateZ(14px);box-shadow:0 14px 0 -6px rgba(0,0,0,.5);
-  }
-  body.uv-vibe .iso-block{background:#160f2e;border-color:var(--neon-cyan,#33e6d8);color:#fff;box-shadow:0 0 10px var(--uv)}
-
-  .iso-trainer{
-    position:absolute;width:80px;height:60px;border-radius:10px;
-    border:2px dashed var(--brand-red);display:flex;align-items:center;justify-content:center;
-    text-align:center;font-size:10px;font-weight:800;letter-spacing:.05em;
-    color:var(--ink);transform:translateZ(10px);
-  }
-  body.uv-vibe .iso-trainer{border-color:var(--uv);color:#c9a3ff}
 
   .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}
   @media (max-width:640px){.stat-row{grid-template-columns:1fr 1fr}}
@@ -246,11 +187,10 @@
   <header>
     <p class="word">THE <span>ROPES</span></p>
     <p class="sub">The plan, in full — for Teddy and Teddy Jr</p>
-    <div class="status">Status doc — updated July 27, 2026</div>
+    <div class="status">Status doc — updated July 28, 2026</div>
   </header>
 
   <nav>
-    <a href="#deal">Deal Structure</a>
     <a href="#space">The Space</a>
     <a href="#vibe">Look &amp; Vibe</a>
     <a href="#format">The Circuit</a>
@@ -264,14 +204,6 @@
     <a href="#revenue">Pricing &amp; Revenue</a>
     <a href="#open">What's Left</a>
   </nav>
-
-  <section id="deal">
-    <h2>Deal Structure</h2>
-    <ul>
-      <li><b>Teddy Jr manages the physical location</b>, day-to-day</li>
-      <li><b>Confirmed: it's a loan/gift, not equity.</b> Teddy and Teddy Jr own the business outright — no equity changes hands.</li>
-    </ul>
-  </section>
 
   <section id="space">
     <h2>The Space</h2>
