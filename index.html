@@ -300,27 +300,8 @@
         <div class="pill active" data-mode="day">Day</div>
         <div class="pill" data-mode="uv">Blacklight</div>
       </div>
-      <div class="iso-stage" id="isoStage">
-        <div class="wall-quote" style="top:40px; left:260px; width:180px;">"WE ARE<br>FIREMEN"</div>
-        <div class="wall-quote small" style="top:150px; left:20px;">"STYLES<br>MAKES<br>FIGHTS"</div>
-        <div class="iso-room">
-          <div class="iso-wall iso-wall-back"></div>
-          <div class="iso-wall iso-wall-side"></div>
-          <div class="iso-floor">
-            <div class="iso-block" style="left:30px; top:30px;">1</div>
-            <div class="iso-block" style="left:110px; top:20px;">2</div>
-            <div class="iso-block" style="left:190px; top:30px;">9</div>
-            <div class="iso-block" style="left:260px; top:60px;">8</div>
-            <div class="iso-block" style="left:20px; top:110px;">3</div>
-            <div class="iso-block" style="left:270px; top:130px;">7</div>
-            <div class="iso-block" style="left:40px; top:190px;">4</div>
-            <div class="iso-block" style="left:250px; top:200px;">6</div>
-            <div class="iso-block" style="left:150px; top:210px;">5</div>
-            <div class="iso-trainer" style="left:110px; top:100px;">TEDDY<br>JR</div>
-          </div>
-        </div>
-      </div>
-      <p style="margin:16px 0 0;font-size:12.5px;color:var(--ink-faint)">This is a fast styled render, not a photoreal one — for an actual walkthrough Teddy Jr can move through, next step is a real floor-plan tool (Coohom or Planner 5D) once he's given notes on this direction.</p>
+      <div id="three-stage" style="position:relative;height:460px;border-radius:12px;overflow:hidden;background:#050403;border:1px solid var(--line)"></div>
+      <p style="margin:16px 0 0;font-size:12.5px;color:var(--ink-faint)">Real 3D — drag to rotate, scroll to zoom. Not a construction drawing; a first-pass feel for the room to react to.</p>
     </div>
   </section>
 
@@ -601,15 +582,179 @@
   </footer>
 </div>
 
-<script>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module">
+  import * as THREE from 'three';
+  import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+  var container = document.getElementById('three-stage');
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.1, 100);
+  camera.position.set(9, 7, 9);
+
+  var renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  container.appendChild(renderer.domElement);
+
+  var controls = new OrbitControls(camera, renderer.domElement);
+  controls.target.set(0, 1.5, 0);
+  controls.enableDamping = true;
+  controls.maxPolarAngle = Math.PI / 2.05;
+  controls.minDistance = 5;
+  controls.maxDistance = 20;
+
+  var W = 14, D = 11, H = 4;
+
+  function makeTextTexture(lines, color, glow) {
+    var canvas = document.createElement('canvas');
+    canvas.width = 1024; canvas.height = 512;
+    var ctx = canvas.getContext('2d');
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.font = '900 110px Impact, "Arial Narrow Bold", "Franklin Gothic Bold", sans-serif';
+    ctx.fillStyle = color;
+    ctx.shadowColor = glow;
+    ctx.shadowBlur = 28;
+    var lineHeight = 118;
+    var startY = canvas.height / 2 - (lines.length - 1) * lineHeight / 2;
+    for (var i = 0; i < lines.length; i++) {
+      ctx.fillText(lines[i], canvas.width / 2, startY + i * lineHeight);
+    }
+    var tex = new THREE.CanvasTexture(canvas);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    return tex;
+  }
+
+  function makeLabelTexture(text) {
+    var canvas = document.createElement('canvas');
+    canvas.width = 256; canvas.height = 256;
+    var ctx = canvas.getContext('2d');
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.font = '900 140px Impact, sans-serif';
+    ctx.fillStyle = '#f2ede4';
+    ctx.fillText(text, 128, 140);
+    var tex = new THREE.CanvasTexture(canvas);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    return tex;
+  }
+
+  var floorMat = new THREE.MeshStandardMaterial({ color: 0x1c1712, roughness: 0.9 });
+  var floor = new THREE.Mesh(new THREE.PlaneGeometry(W, D), floorMat);
+  floor.rotation.x = -Math.PI / 2;
+  scene.add(floor);
+
+  var wallMat = new THREE.MeshStandardMaterial({ color: 0x170f0a, roughness: 0.95 });
+  var backWall = new THREE.Mesh(new THREE.PlaneGeometry(W, H), wallMat);
+  backWall.position.set(0, H / 2, -D / 2);
+  scene.add(backWall);
+
+  var sideWallMat = wallMat.clone();
+  var sideWall = new THREE.Mesh(new THREE.PlaneGeometry(D, H), sideWallMat);
+  sideWall.position.set(-W / 2, H / 2, 0);
+  sideWall.rotation.y = Math.PI / 2;
+  scene.add(sideWall);
+
+  var backTex = makeTextTexture(['"WE ARE', 'FIREMEN"'], '#cc0000', 'rgba(204,0,0,0.9)');
+  var backQuote = new THREE.Mesh(new THREE.PlaneGeometry(W * 0.55, H * 0.5), new THREE.MeshBasicMaterial({ map: backTex, transparent: true }));
+  backQuote.position.set(0, H * 0.6, -D / 2 + 0.03);
+  scene.add(backQuote);
+
+  var sideTex = makeTextTexture(['"STYLES', 'MAKES', 'FIGHTS"'], '#cc0000', 'rgba(204,0,0,0.9)');
+  var sideQuote = new THREE.Mesh(new THREE.PlaneGeometry(D * 0.45, H * 0.6), new THREE.MeshBasicMaterial({ map: sideTex, transparent: true }));
+  sideQuote.position.set(-W / 2 + 0.03, H * 0.55, 0);
+  sideQuote.rotation.y = Math.PI / 2;
+  scene.add(sideQuote);
+
+  var stations = [
+    { n: 1, x: -5, z: -3.5 }, { n: 2, x: -2.5, z: -4 }, { n: 9, x: 0, z: -3.5 }, { n: 8, x: 3, z: -3 },
+    { n: 3, x: -5.5, z: 0 }, { n: 7, x: 5.5, z: 1 },
+    { n: 4, x: -4, z: 3.5 }, { n: 6, x: 4, z: 3.5 }, { n: 5, x: 0, z: 4 }
+  ];
+  var blockMat = new THREE.MeshStandardMaterial({ color: 0x2a231a, roughness: 0.7 });
+  stations.forEach(function (s) {
+    var geo = new THREE.CylinderGeometry(0.5, 0.5, 0.6, 24);
+    var mesh = new THREE.Mesh(geo, blockMat);
+    mesh.position.set(s.x, 0.3, s.z);
+    scene.add(mesh);
+    var label = new THREE.Sprite(new THREE.SpriteMaterial({ map: makeLabelTexture(String(s.n)), transparent: true }));
+    label.scale.set(1, 1, 1);
+    label.position.set(s.x, 0.85, s.z);
+    scene.add(label);
+  });
+
+  var trainerMat = new THREE.MeshBasicMaterial({ color: 0xcc0000, side: THREE.DoubleSide });
+  var trainerRing = new THREE.Mesh(new THREE.RingGeometry(1.6, 1.72, 4), trainerMat);
+  trainerRing.rotation.x = -Math.PI / 2;
+  trainerRing.rotation.z = Math.PI / 4;
+  trainerRing.position.set(0, 0.02, 0);
+  scene.add(trainerRing);
+
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.3;
+
+  var ambient = new THREE.AmbientLight(0xffffff, 2.6);
+  scene.add(ambient);
+  var key = new THREE.PointLight(0xffddaa, 260, 40, 1.6);
+  key.position.set(3, 6, 3);
+  scene.add(key);
+  var fill = new THREE.PointLight(0xfff4e0, 120, 40, 1.6);
+  fill.position.set(-4, 5, 6);
+  scene.add(fill);
+
+  function animate() {
+    requestAnimationFrame(animate);
+    controls.update();
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  function syncSize() {
+    var w = container.clientWidth, h = container.clientHeight;
+    if (!w || !h) return;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+  }
+  window.addEventListener('resize', syncSize);
+  new ResizeObserver(syncSize).observe(container);
+
   var isoToggle = document.getElementById('isoToggle');
   if (isoToggle) {
-    isoToggle.addEventListener('click', function(e) {
+    isoToggle.addEventListener('click', function (e) {
       var pill = e.target.closest('.pill');
       if (!pill) return;
-      isoToggle.querySelectorAll('.pill').forEach(function(p){ p.classList.remove('active'); });
+      isoToggle.querySelectorAll('.pill').forEach(function (p) { p.classList.remove('active'); });
       pill.classList.add('active');
-      document.body.classList.toggle('uv-vibe', pill.dataset.mode === 'uv');
+      var isUv = pill.dataset.mode === 'uv';
+      document.body.classList.toggle('uv-vibe', isUv);
+      if (isUv) {
+        key.color.set(0x9b3fe0);
+        fill.color.set(0x5b2fb0);
+        ambient.intensity = 1.1;
+        floorMat.color.set(0x0e0a1c);
+        wallMat.color.set(0x0f0824);
+        sideWallMat.color.set(0x0f0824);
+        trainerMat.color.set(0x9b3fe0);
+        blockMat.color.set(0x160f2e);
+      } else {
+        key.color.set(0xffddaa);
+        fill.color.set(0xfff4e0);
+        ambient.intensity = 2.6;
+        floorMat.color.set(0x1c1712);
+        wallMat.color.set(0x170f0a);
+        sideWallMat.color.set(0x170f0a);
+        trainerMat.color.set(0xcc0000);
+        blockMat.color.set(0x2a231a);
+      }
     });
   }
 </script>
