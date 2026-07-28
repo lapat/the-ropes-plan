@@ -192,6 +192,27 @@
   .bar-fill span{font-size:12px;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
   .bar-fill.alt{background:var(--uv)}
 
+  .photo-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0}
+  @media (max-width:640px){.photo-grid{grid-template-columns:1fr 1fr}}
+  .photo-card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .photo-card img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover}
+  .photo-card span{display:block;padding:10px 12px;font-size:12px;color:var(--ink-faint)}
+
+  .cta-button{display:inline-flex;align-items:center;gap:10px;background:var(--brand-red);color:#fff;font-weight:800;font-size:15px;letter-spacing:.02em;text-decoration:none;padding:16px 26px;border-radius:12px;margin:4px 0 6px;box-shadow:0 10px 28px rgba(204,0,0,.35);transition:transform .15s ease}
+  .cta-button:hover{transform:translateY(-2px)}
+  .cta-button .arrow{font-size:18px;line-height:1}
+
+  .video-card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:16px 0}
+  .video-card video{width:100%;display:block;background:#000}
+  .video-card span{display:block;padding:10px 12px;font-size:12px;color:var(--ink-faint)}
+
+  .app-shot{display:block;max-width:260px;width:100%;border-radius:16px;border:1px solid var(--line);box-shadow:0 20px 50px rgba(0,0,0,.5);margin:16px 0}
+
+  .lightbox-trigger{cursor:zoom-in}
+  #lightbox-overlay{position:fixed;inset:0;background:rgba(5,4,3,.94);display:none;align-items:center;justify-content:center;z-index:999;padding:40px;cursor:zoom-out}
+  #lightbox-overlay.open{display:flex}
+  #lightbox-overlay img{max-width:92vw;max-height:90vh;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+
   .brand-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
   @media (max-width:640px){.brand-grid{grid-template-columns:1fr 1fr}}
   @media (max-width:420px){.brand-grid{grid-template-columns:1fr}}
@@ -248,6 +269,7 @@
     <h2>Deal Structure</h2>
     <ul>
       <li><b>Teddy Jr manages the physical location</b>, day-to-day</li>
+      <li><b>Confirmed: it's a loan/gift, not equity.</b> Teddy and Teddy Jr own the business outright — no equity changes hands.</li>
     </ul>
   </section>
 
@@ -387,7 +409,16 @@
 
   <section id="visuals">
     <h2>Visual Concepts — Station Screens</h2>
-    <p class="callout">Full writeup, sourcing (including a real Teddy Atlas bio/quote pass), and the live mockup are in <b>Teddy Atlas Design Brain — July 28 2026/</b>, a sibling folder to this one. Direct link to the interactive mockup: <a href="https://claude.ai/code/artifact/80615409-5fc7-406e-ae75-dde8bb805641" target="_blank" rel="noopener">station-screen-concept</a>.</p>
+
+    <a class="cta-button" href="https://claude.ai/code/artifact/80615409-5fc7-406e-ae75-dde8bb805641" target="_blank" rel="noopener">Open the interactive mockup <span class="arrow">&#8594;</span></a>
+    <p style="margin:-10px 0 20px;font-size:12.5px;color:var(--ink-faint)">Live and clickable — all three directions below, full-size. Screenshots underneath if you just want the fast version.</p>
+
+    <div class="photo-grid">
+      <div class="photo-card"><img class="lightbox-trigger" src="images/mockup-concept-a.jpg" alt="Concept A — Corner Voice mockup" loading="lazy"><span>Concept A — Corner Voice</span></div>
+      <div class="photo-card"><img class="lightbox-trigger" src="images/mockup-concept-b.jpg" alt="Concept B — Fight Card mockup" loading="lazy"><span>Concept B — Fight Card</span></div>
+      <div class="photo-card"><img class="lightbox-trigger" src="images/mockup-concept-c.jpg" alt="Concept C — Trainer's Board mockup" loading="lazy"><span>Concept C — Trainer's Board</span></div>
+    </div>
+
     <ul>
       <li><b>Corner Voice</b> — closest to what's already built in the iPad app itself: dark ground, ring timer as hero, punch count and skeleton-tracking camera shown small and plain, not oversold.</li>
       <li><b>Fight Card</b> — broadcast HUD register. Live camera feed fills the whole screen, stats ride a lower-third bar like a televised fight graphics package.</li>
@@ -395,6 +426,24 @@
     </ul>
     <p class="callout"><b>Flag before this goes further:</b> all three use a warm coral-and-brass accent on near-black, matched to the punch-counter app's own existing palette (<code>Theme.swift</code>) — not the plain black/white/red noted above, and not teddyatlas.com's hand-script-on-black-and-white look. That was a deliberate exploration, not an oversight, but it needs a real decision: extend Teddy's existing black/white(/red) identity, or treat the station screen as its own sub-brand the way FightCamp's app doesn't try to look like a magazine cover.</p>
     <p class="callout"><b>Update (2026-07-28):</b> the mockup (same link above) now also has a straight black/white/red recolor of Concept A side by side with the original, plus five named palette directions total (Ember/current, Corner Classic/B&amp;W&amp;red, Championship/oxblood+gold, Quiet Corner/grayscale+red-only-for-live, Ring Magazine/navy+cream+red) so the palette call is a real side-by-side instead of an abstract question. Nothing picked yet — that's still open.</p>
+
+    <h3>The real app, right now — not a mockup</h3>
+    <p>An actual screen from the station app already running, captured off a real build.</p>
+    <img class="lightbox-trigger app-shot" src="images/app-station-idle.png" alt="TeddyStations app real idle screen, Station 1 Jab-Cross" loading="lazy">
+
+    <h3>Live tracking, on real bag work</h3>
+    <p>The lines on the guy hitting the bag are real skeleton tracking, running against actual test footage — not an animation.</p>
+    <div class="video-card">
+      <video src="videos/punchvision-demo-reel.mp4" autoplay muted loop playsinline controls></video>
+      <span>Live skeleton tracking + punch counting, real bag-work footage</span>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-card"><img class="lightbox-trigger" src="images/01-real-gym-footage.png" alt="Real gym footage with pose tracking overlay" loading="lazy"><span>Real gym footage, live tracking overlay</span></div>
+      <div class="photo-card"><img class="lightbox-trigger" src="images/02-dim-gym-lighting.png" alt="Pose tracking in dim gym lighting" loading="lazy"><span>Dim lighting — tracking still holds</span></div>
+      <div class="photo-card"><img class="lightbox-trigger" src="images/03-kickbox-full-body.png" alt="Full body kickbox tracking" loading="lazy"><span>Full-body tracking, kickbox motion</span></div>
+      <div class="photo-card"><img class="lightbox-trigger" src="images/04-two-people-locked-tracking.png" alt="Two people tracked simultaneously" loading="lazy"><span>Two people, locked tracking on each</span></div>
+      <div class="photo-card"><img class="lightbox-trigger" src="images/05-fast-flurry.png" alt="Fast punch flurry tracking" loading="lazy"><span>Fast flurry — no dropped frames</span></div>
+    </div>
   </section>
 
   <section id="words">
@@ -432,7 +481,7 @@
 
     <h3>The actual steps, in order</h3>
     <ol>
-      <li><b>Decide: equity or gift/loan?</b> Is the $250K a capital contribution (with equity in a jointly-owned LLC) or a loan/gift to Teddy and Teddy Jr (no equity, they own it outright)? Nothing else below can really start until this is answered — it determines who the LLC's members are.</li>
+      <li><b>Deal structure is confirmed.</b> The $250K is a loan/gift, not a capital contribution — Teddy and Teddy Jr own the business outright, no equity changes hands. That settles who the LLC's members are.</li>
       <li><b>Decide whose name the business runs under</b> — the LLC, or Teddy/Teddy Jr personally — this follows directly from step 1.</li>
       <li><b>Form the NJ LLC.</b> File a Certificate of Formation directly with NJ (~$125) — simpler and cheaper than routing through an out-of-state parent entity. Since 100% of this gym's operations are in NJ, a direct NJ LLC saves real money (~$150-450/yr) versus folding it into an existing out-of-state corporate structure, unless there's a specific tax/reporting reason to do otherwise — worth confirming directly rather than assuming.</li>
       <li><b>Get an EIN and register with NJ-REG</b> (tax/employer registration) — required before hiring anyone or collecting payment.</li>
@@ -463,8 +512,7 @@
     </div>
 
     <div class="card">
-      <h3 style="margin-top:0">Equipment &amp; buildout — an actual itemized budget</h3>
-      <p>This was a vague "five-figure cost" earlier — here's a real number. Rough estimates for a 3,000 sqft space, lean-but-real (not luxury, not bare-minimum):</p>
+      <h3 style="margin-top:0">Equipment budget — gear, flooring, iPads</h3>
       <table>
         <tr><th>Item</th><th>Estimate</th></tr>
         <tr><td>Rubber gym flooring, installed</td><td>$9,000–18,000</td></tr>
@@ -476,39 +524,34 @@
         <tr><td>Sound system</td><td>$1,000–3,000</td></tr>
         <tr><td>Misc — jump ropes, ab mats, gloves/wraps for sale, first aid, locker room basics</td><td>$2,000–5,000</td></tr>
       </table>
-      <p style="margin-bottom:0"><b>Total: roughly $28,000–62,000</b>, call it ~$40,000 as a working number. Phasing this — opening with fewer stations fully equipped and adding the rest as revenue comes in — is a real way to cut the upfront number if the budget's tight.</p>
+      <p style="margin-bottom:0"><b>Equipment/furnishing total: roughly $28,000–62,000.</b> Phasing this — opening with fewer stations fully equipped and adding the rest as revenue comes in — is a real way to reduce the upfront number.</p>
     </div>
 
     <div class="card">
-      <h3 style="margin-top:0">The $150K / $100K math — real numbers, and it's tight</h3>
-      <p>This is one way to think about the split, not a rule — Teddy and Teddy Jr decide how to actually divide the $250K. If $150K goes to salary, that leaves $100K for everything else. Running the real numbers against the Central Ave space (~$6,000/mo):</p>
+      <h3 style="margin-top:0">Construction buildout — the number that actually matters most</h3>
+      <p>This is separate from equipment above, and it's the single biggest unknown in the whole budget. Actual commercial buildout — electrical, HVAC, plumbing, walls — for a fitness space this size typically runs <b>$50–150 per sqft</b>, which on 3,000 sqft is <b>$150,000–$240,000</b>. That's before equipment.</p>
       <ul>
-        <li>12 months' rent: $72,000</li>
-        <li>Security deposit (commercial landlords often want 3+ months from a new operator, more for a first-time contact-sport tenant): $18,000–36,000</li>
-        <li>LLC formation + attorney (operating agreement, licensing agreement, real liability waiver): ~$3,500</li>
-        <li>Insurance (general liability + contact-sport rider): ~$3,000</li>
-        <li>Equipment &amp; buildout (see above): ~$40,000</li>
+        <li>12 months' rent: ~$72,000</li>
+        <li>Security deposit (commercial landlords often want 3+ months from a new operator): $18,000–36,000</li>
+        <li>Legal + LLC formation + insurance: ~$6,500</li>
+        <li>Equipment (above): $28,000–62,000</li>
+        <li>Construction buildout: $150,000–240,000</li>
       </ul>
-      <p>Total: ~$136,500–154,500 against $250K. Leaves roughly $95,500–113,500 for salary and cushion, not $150K.</p>
-      <div class="bar-chart">
-        <div class="bar-row">
-          <span class="bar-label">Rent + deposit</span>
-          <div class="bar-track"><div class="bar-fill" style="width:36%"><span>$90–108K</span></div></div>
-        </div>
-        <div class="bar-row">
-          <span class="bar-label">Equipment / buildout</span>
-          <div class="bar-track"><div class="bar-fill" style="width:16%"><span>$40K</span></div></div>
-        </div>
-        <div class="bar-row">
-          <span class="bar-label">Legal + insurance</span>
-          <div class="bar-track"><div class="bar-fill" style="width:3%"><span>$6.5K</span></div></div>
-        </div>
-        <div class="bar-row">
-          <span class="bar-label">Left for salary + cushion</span>
-          <div class="bar-track"><div class="bar-fill alt" style="width:42%"><span>~$95–113K</span></div></div>
-        </div>
-      </div>
-      <p style="margin-bottom:0">If $150K salary matters more than anything else, the gap (~$36,500–55,000) has to come from somewhere: a smaller deposit, phased equipment buildout, or the pop-up-clinic pre-sale (see Testing It First) generating real cash before the lease is even signed.</p>
+      <p style="margin-bottom:0"><b>Full range: roughly $274,500–416,500</b> — meaningfully more than $250K if the space needs real construction. The actual number depends entirely on the shell condition: if 298/367 Central Ave was previously a gym or dance studio (fitness-ready electrical/flooring already in place), buildout could land far below this range. If it's raw retail or office space, it likely exceeds $250K without a landlord tenant-improvement allowance or more capital. <b>Getting a real contractor's buildout quote for the specific space is the single most important next step</b> — bigger than any other number in this plan.</p>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">A realistic path to bring this closer to $250K</h3>
+      <p>The $274,500–416,500 range above assumes a raw shell and a full day-one 9-station build. Four real levers compress that, each with a sourced or clearly-flagged confidence level:</p>
+      <table>
+        <tr><th>Lever</th><th>Effect</th><th>Confidence</th></tr>
+        <tr><td>Smaller footprint (3,000 → ~2,000 sqft)</td><td>9Round's own real spec is 1,500–2,500 sqft — 3,000 was already above their own standard. Scaling down cuts buildout and equipment scope directly.</td><td>High — confirmed against 9Round's own franchise materials</td></tr>
+        <tr><td>Second-generation fitness space (was a gym/dance/fitness studio before)</td><td>Existing electrical, flooring, and plumbing already suited to fitness use — realistic buildout drops to roughly $25–75/sqft instead of $50–150/sqft</td><td>Moderate — reasoned from general commercial fit-out cost guides, not fitness-specific data. Confirm with a real contractor walkthrough.</td></tr>
+        <tr><td>Landlord Tenant Improvement (TI) allowance on a 5+ year lease</td><td>Realistic $15–35/sqft credit toward buildout for small retail in a secondary NJ market — a real boutique fitness studio in a comparable market negotiated exactly this</td><td>Good — multiple independent commercial real estate sources agree, including one directly comparable real example</td></tr>
+        <tr><td>Used/marketplace equipment for non-critical items</td><td>A real secondary market exists (several used commercial fitness equipment resellers found) — but no sourced discount %, so not counted in the numbers below</td><td>Low — real market exists, no verified discount to plug in yet</td></tr>
+      </table>
+      <p><b>Compressed range if the first three levers land: roughly $146,500–$244,500 total</b> (12 months' rent $72,000 + deposit $18,000–36,000 + legal $6,500 + phased equipment on the smaller footprint $20,000–40,000 + net buildout after TI credit $30,000–90,000). That's real progress from $274,500–416,500, and the low end fits inside $250K with room left over.</p>
+      <p style="margin-bottom:0">Getting the whole thing near $125K in construction/equipment specifically would require best-case results on every lever at once — not something to plan around, but not impossible either if 298/367 Central Ave turns out to have been a fitness space before. The honest move is the same as above: <b>get a real contractor's quote and ask the landlord about a TI allowance before finalizing anything.</b></p>
     </div>
 
     <div class="card">
@@ -583,6 +626,12 @@
         <tr><td>Growth (months 6–12)</td><td>100–180</td><td>$145–165</td><td>$14,500–29,700</td></tr>
         <tr><td>Stabilized (month 12–24+)</td><td>200–300</td><td>$150–170</td><td>$30,000–51,000</td></tr>
       </table>
+      <div class="bar-chart">
+        <div class="bar-row"><div class="bar-label">Conservative launch</div><div class="bar-track"><div class="bar-fill" style="width:24%"><span>~$12.2K/mo</span></div></div></div>
+        <div class="bar-row"><div class="bar-label">Growth</div><div class="bar-track"><div class="bar-fill" style="width:43%"><span>~$22.1K/mo</span></div></div></div>
+        <div class="bar-row"><div class="bar-label">Stabilized</div><div class="bar-track"><div class="bar-fill" style="width:79%"><span>~$40.5K/mo</span></div></div></div>
+      </div>
+      <p style="margin-bottom:0">Bars show the midpoint of each range above, not the full spread — see the table for the honest low–high.</p>
       <p style="margin-bottom:0">Stabilized annualized: roughly <b>$360,000–612,000/yr</b>. These are built from boutique-studio break-even data (most break even around 75–150 members, or fewer at premium pricing) and typical ~70–80% annual retention — not from a sourced capacity model for this exact format. 9Round's drop-in-anytime structure (no fixed class times, unlike Rumble/Title) means capacity is limited by station count and hours open rather than class slots, but there's no sourced number for realistic daily throughput at this size — a real gap, worth testing directly once the pop-up clinics run.</p>
     </div>
 
@@ -608,7 +657,7 @@
     <h3>Research finished — ready to act on, not acted on yet</h3>
     <ul class="checklist">
       <li><span class="box"></span><span><span class="tag open">Not started</span><b>Rent a space.</b> Central Avenue, Jersey City Heights is the suggestion, with two real listings (298/367 Central Ave). Nobody has toured either one or talked to a broker.</span></li>
-      <li><span class="box"></span><span><span class="tag open">Not started</span><b>Legal setup.</b> NJ Health Club Act registration, LLC formation, liability waiver, licensing agreement — all researched, none filed. Also still needs a decision on deal structure (equity vs. loan/gift) before any of it can actually start.</span></li>
+      <li><span class="box"></span><span><span class="tag open">Not started</span><b>Legal setup.</b> NJ Health Club Act registration, LLC formation, liability waiver, licensing agreement — all researched, none filed. Deal structure is confirmed (loan/gift, no equity) — nothing blocking legal setup from starting.</span></li>
       <li><span class="box"></span><span><span class="tag open">Not started</span><b>Social media.</b> Real numbers and ideas are on this page. No accounts are set up, no content exists, nothing is posted.</span></li>
     </ul>
 
@@ -625,6 +674,24 @@
     This is a working plan, not a finished proposal — everything above is open for discussion.
   </footer>
 </div>
+
+<div id="lightbox-overlay"><img id="lightbox-img" src="" alt=""></div>
+<script>
+  (function () {
+    var overlay = document.getElementById('lightbox-overlay');
+    var overlayImg = document.getElementById('lightbox-img');
+    document.addEventListener('click', function (e) {
+      var trigger = e.target.closest('.lightbox-trigger');
+      if (trigger) {
+        overlayImg.src = trigger.src;
+        overlayImg.alt = trigger.alt;
+        overlay.classList.add('open');
+        return;
+      }
+      if (e.target === overlay) overlay.classList.remove('open');
+    });
+  })();
+</script>
 
 <script type="importmap">
 {
@@ -805,7 +872,7 @@
   sideWall.rotation.y = Math.PI / 2;
   scene.add(sideWall);
 
-  var backTex = makePhotoQuoteTexture('/static/images/teddy-portrait.jpg', 'WE ARE FIREMEN', 900, 1120);
+  var backTex = makePhotoQuoteTexture('images/teddy-portrait.jpg', 'WE ARE FIREMEN', 900, 1120);
   var backQuote = new THREE.Mesh(new THREE.PlaneGeometry(H * 0.88 * (900 / 1120), H * 0.88), new THREE.MeshBasicMaterial({ map: backTex, transparent: true }));
   backQuote.position.set(0, H * 0.48, -D / 2 + 0.03);
   scene.add(backQuote);
