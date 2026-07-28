@@ -1,0 +1,235 @@
+<meta charset="UTF-8">
+<title>The Ropes — The Plan</title>
+<style>
+  :root{
+    --ink:#f2ede4;
+    --ink-dim:#b8afa0;
+    --ink-faint:#7c7364;
+    --bg:#0c0a08;
+    --card:#151109;
+    --line:#2a231c;
+    --brand-red:#cc0000;
+    --uv:#9b3fe0;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,"SF Pro Text",Helvetica,Arial,sans-serif;
+    line-height:1.6;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:56px 24px 100px}
+
+  header{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:12px}
+  .word{
+    font-size:clamp(30px,6vw,46px);font-weight:900;letter-spacing:0.01em;
+    line-height:0.95;margin:0;text-transform:uppercase;
+  }
+  .word span{color:var(--brand-red)}
+  .sub{color:var(--ink-dim);font-size:14px;margin-top:10px}
+  .status{
+    display:inline-block;margin-top:14px;font-size:11px;font-weight:800;
+    letter-spacing:.08em;text-transform:uppercase;color:#ff8a8a;
+    background:rgba(204,0,0,.14);border:1px solid rgba(204,0,0,.35);
+    padding:4px 10px;border-radius:999px;
+  }
+
+  nav{
+    display:flex;flex-wrap:wrap;gap:8px 18px;
+    margin:28px 0 48px;padding:16px 18px;
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+  }
+  nav a{color:var(--ink-dim);text-decoration:none;font-size:13px;font-weight:600}
+  nav a:hover{color:var(--ink)}
+
+  section{margin-bottom:52px;scroll-margin-top:20px}
+  h2{
+    font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--brand-red);margin:0 0 18px;
+  }
+  h3{font-size:16px;font-weight:800;margin:24px 0 8px;color:var(--ink)}
+  p{margin:0 0 14px;color:var(--ink-dim);font-size:15px}
+  p b, li b{color:var(--ink);font-weight:700}
+  ul,ol{margin:0 0 14px;padding-left:20px;color:var(--ink-dim);font-size:15px}
+  li{margin-bottom:8px}
+  li::marker{color:var(--ink-faint)}
+
+  .lede{font-size:16.5px;color:var(--ink)}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:18px 0}
+
+  table{width:100%;border-collapse:collapse;margin:8px 0 20px;font-size:14.5px}
+  th{
+    text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--ink-faint);font-weight:700;padding:0 12px 10px 0;border-bottom:1px solid var(--line);
+  }
+  td{padding:10px 12px 10px 0;border-bottom:1px solid var(--line);color:var(--ink-dim)}
+  td:first-child{color:var(--ink);font-weight:800;font-variant-numeric:tabular-nums;width:40px}
+  tr:last-child td{border-bottom:none}
+
+  .callout{
+    border-left:3px solid var(--brand-red);padding:4px 0 4px 16px;margin:18px 0;
+    color:var(--ink-dim);font-size:14.5px;
+  }
+  .callout b{color:var(--ink)}
+
+  .tag{
+    display:inline-block;font-size:10px;font-weight:800;letter-spacing:.06em;
+    text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-right:8px;vertical-align:1px;
+  }
+  .tag.done{background:rgba(155,63,224,.16);color:#c9a3ff}
+  .tag.open{background:rgba(120,120,120,.16);color:#a8a196}
+
+  .checklist{list-style:none;padding-left:0}
+  .checklist li{
+    display:flex;gap:10px;align-items:flex-start;padding:10px 0;
+    border-bottom:1px solid var(--line);font-size:14.5px;
+  }
+  .checklist li:last-child{border-bottom:none}
+  .box{
+    flex:0 0 18px;height:18px;border-radius:5px;border:1.5px solid var(--ink-faint);
+    margin-top:1px;
+  }
+  .box.checked{background:var(--brand-red);border-color:var(--brand-red);position:relative}
+  .box.checked::after{
+    content:"";position:absolute;left:5px;top:2px;width:5px;height:9px;
+    border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(40deg);
+  }
+
+  footer{
+    margin-top:60px;padding-top:24px;border-top:1px solid var(--line);
+    font-size:12.5px;color:var(--ink-faint);
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="word">THE <span>ROPES</span></p>
+    <p class="sub">The plan, in full — for Teddy and Teddy Jr</p>
+    <div class="status">Status doc — updated July 27, 2026</div>
+  </header>
+
+  <nav>
+    <a href="#changed">What Changed</a>
+    <a href="#deal">Deal Structure</a>
+    <a href="#space">The Space</a>
+    <a href="#format">The Circuit</a>
+    <a href="#tech">Technology</a>
+    <a href="#branding">Branding</a>
+    <a href="#legal">Legal &amp; Social</a>
+    <a href="#open">What's Left</a>
+  </nav>
+
+  <section id="changed">
+    <h2>What Changed From the First Pass</h2>
+    <p class="lede">The first version of this was a from-scratch market study — competitors, unit economics, "should we do this at all." That question is closed. Jay talked to Teddy directly and locked in a specific format.</p>
+    <ul>
+      <li><b>New Jersey</b>, searching now</li>
+      <li><b>9Round, but with iPads</b> — a live-trainer, circuit-station model, not a from-scratch concept</li>
+      <li>Comparing competitors isn't the active work anymore — building it is</li>
+    </ul>
+  </section>
+
+  <section id="deal">
+    <h2>Deal Structure</h2>
+    <ul>
+      <li><b>$250,000 in capital</b> to Teddy and Teddy Jr — covers rent and income during buildout and ramp-up</li>
+      <li><b>Teddy Jr manages the physical location</b>, day-to-day</li>
+      <li><b>Jay and Louis handle:</b> real estate search, legal setup, planning, and prep work (legal, social media)</li>
+      <li><b>Teddy and Teddy Jr handle:</b> everything else — coaching, running the floor, member relationships</li>
+      <li>Priority: <b>start as soon as possible.</b> Any prep work that can get done before the space is secured is a head start, not wasted effort.</li>
+    </ul>
+  </section>
+
+  <section id="space">
+    <h2>The Space</h2>
+    <p><b>Target: 3,000 sqft</b> — meaningfully larger than 9Round's own footprint (their spec runs 1,500–2,500 sqft), so there's real room to add iPad infrastructure per station without cramping the circuit.</p>
+    <p><b>Criteria:</b> New Jersey, near NYC, ideally near a train line, ideally near other gyms with an existing fight-sports following.</p>
+
+    <div class="card">
+      <h3 style="margin-top:0">Recommendation: Central Avenue, Jersey City Heights</h3>
+      <p>This corridor hits every criterion with real evidence behind it, not just proximity math.</p>
+      <ul>
+        <li><b>Available now:</b> 298 Central Ave (3,000 sqft, ~$6,000/mo) and 367 Central Ave (3,250–4,250 sqft) — both currently listed, both in range.</li>
+        <li><b>Existing fight-sports presence on the same street:</b> Family Fitness Karate and Kickboxing runs a location at 419 Central Ave — direct evidence the corridor already supports a combat-sports business.</li>
+        <li><b>Broader Jersey City boxing/MMA scene nearby:</b> World Boxing Gym, The Trinity Boxing Club, CULTR Fight Club, Heavy Hitters, CKO Kickboxing — a real, established market, not a cold start.</li>
+        <li><b>Transit:</b> near the Journal Square PATH hub — not directly attached to a station, worth knowing honestly rather than oversold.</li>
+      </ul>
+      <p class="callout"><b>Alternative:</b> 1 PATH Plaza has retail space literally inside a newly renovated PATH station, but the available units run larger (5,100+ sqft ground floor) — oversized for the target and further from the existing gym cluster.</p>
+      <p style="margin-bottom:0"><b>Next step:</b> this is as far as remote research can responsibly take it — touring 298/367 Central Ave with a broker is the actual next move.</p>
+    </div>
+  </section>
+
+  <section id="format">
+    <h2>Format — The Circuit</h2>
+    <p>Copying 9Round's proven 9-station structure directly rather than reinventing it:</p>
+    <table>
+      <tr><th>Station</th><th>Equipment</th></tr>
+      <tr><td>1</td><td>Jump rope</td></tr>
+      <tr><td>2</td><td>Dumbbells / kettlebells / medicine ball</td></tr>
+      <tr><td>3</td><td>Double-end bag — hand-eye, jabs/crosses/hooks</td></tr>
+      <tr><td>4</td><td>Heavy bag</td></tr>
+      <tr><td>5</td><td>Wrecking-ball bag — hooks/uppercuts from any angle</td></tr>
+      <tr><td>6</td><td>Heavy bag</td></tr>
+      <tr><td>7</td><td>Horizontal / uppercut bag — hooks, uppercuts, bag presses</td></tr>
+      <tr><td>8</td><td>Speed bag</td></tr>
+      <tr><td>9</td><td>Core / ab mat</td></tr>
+    </table>
+    <p>Plus a <b>trainer-led station</b> (hand pads, Thai pads, kick shield) — where Teddy Jr's real coaching happens, not a fixed piece of equipment. 3-minute rounds, room-wide rotation, same rhythm as 9Round. <b>No reservations</b> — drop-in model, matching the format being copied.</p>
+  </section>
+
+  <section id="tech">
+    <h2>Technology — Status By Piece</h2>
+    <p><b>iPad-per-station app:</b> the single most important piece of the tech plan, and still genuinely open. A first version (timer-driven station flow) was built and confirmed working, but paused after a real question surfaced: 9Round's actual model has <b>no instructional screens at all</b> — just a live trainer and a room-wide bell. What the screen is actually for is still being worked out before more app code gets written.</p>
+    <p><b>Computer-vision punch detection/coaching:</b> researched in depth. Basic punch <i>counting</i> via Apple's own camera technology is real and achievable — a working prototype already counts punches from real bag-work footage. Real technique-quality coaching feedback ("your chin's up," "rotate your hips") is a genuine, unsolved research problem — even a $5.8M-funded specialist company with a dedicated computer-vision team hasn't shipped that yet. <b>Call: don't build or promise AI coaching in version one.</b> A lightweight, gamified punch-counter is a reasonable bonus feature; real coaching stays with Teddy Jr.</p>
+    <p><b>Teddy's digital twin:</b> a voice clone only — no video avatar (ruled out as too strange). In progress, sourced from Teddy's YouTube and ESPN appearances.</p>
+  </section>
+
+  <section id="branding">
+    <h2>Branding</h2>
+    <ul>
+      <li>Working name: <b>"The Ropes"</b></li>
+      <li>Palette: black / white / red, matching Teddy's existing public branding</li>
+      <li>Space vibe: blacklight/neon energy, referencing Life Time's black-light cycling studios — purple UV wash, neon accents, high energy — combined with Teddy's own words as wall graphics</li>
+      <li>A visual concept for the space is still in progress — the first pass wasn't good enough to send yet</li>
+    </ul>
+  </section>
+
+  <section id="legal">
+    <h2>Legal &amp; Social Media Prep</h2>
+    <p>Prep work that can start before the space is even secured, per the "sooner the better" priority.</p>
+
+    <h3>Decisions needed from Jay first</h3>
+    <ul>
+      <li>Is the $250K a capital contribution (Jay/Louis get equity in a jointly-owned LLC) or a loan/gift to Teddy and Teddy Jr (no equity, they own it outright)? This decides the entire legal structure underneath it.</li>
+      <li>Whose name is the business licensed and insured under — the LLC, or Teddy/Teddy Jr personally?</li>
+    </ul>
+
+    <h3>Execution once that's settled</h3>
+    <ul>
+      <li>Form the NJ business entity (an LLC is standard for a single-location gym)</li>
+      <li>An operating/partnership agreement spelling out Teddy Jr's management role and pay, and Jay/Louis's role</li>
+      <li>A written name/likeness agreement for using Teddy's name and brand commercially — in writing, not a handshake, since the whole venture's value rides on his name</li>
+      <li>Standard boxing-gym liability waiver plus an assault/contact-sport insurance rider</li>
+      <li>Lease review once a Central Ave space is chosen</li>
+      <li>A basic trademark check on "The Ropes" before locking it in</li>
+    </ul>
+
+    <h3>Social media</h3>
+    <p>One open question for Jay: hire a social media agency, or use AI tools to help draft/schedule content? Either way — reserve @theropes (or the final name) across Instagram, TikTok, X, and YouTube now, before someone else takes it. And lean hard on Teddy's existing following and ESPN reach rather than generic gym content — that's the actual differentiator here.</p>
+  </section>
+
+  <section id="open">
+    <h2>What's Left</h2>
+    <ul class="checklist">
+      <li><span class="box checked"></span><span><span class="tag done">Done</span>NJ site recommendation — Central Avenue, Jersey City Heights. Next step is touring, not more research.</span></li>
+      <li><span class="box"></span><span><span class="tag open">Open</span>Legal + social media — scoped, waiting on Jay's call on deal structure and social approach</span></li>
+      <li><span class="box"></span><span><span class="tag open">Open</span>Space visual concept — first pass wasn't strong enough, redoing it</span></li>
+      <li><span class="box"></span><span><span class="tag open">Open</span>App direction — still being worked out</span></li>
+      <li><span class="box"></span><span><span class="tag open">Open</span>Digital twin voice — in progress</span></li>
+    </ul>
+  </section>
+
+  <footer>
+    This is a working plan, not a finished proposal — everything above is open for discussion.
+  </footer>
+</div>
