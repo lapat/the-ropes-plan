@@ -33,6 +33,13 @@
     padding:4px 10px;border-radius:999px;
   }
 
+  .flag{
+    margin:24px 0 0;padding:16px 18px;border-radius:12px;
+    background:rgba(204,0,0,.12);border:1px solid rgba(204,0,0,.4);
+    font-size:14px;color:#ffd4d4;
+  }
+  .flag b{color:#fff}
+
   nav{
     display:flex;flex-wrap:wrap;gap:8px 18px;
     margin:28px 0 48px;padding:16px 18px;
@@ -95,6 +102,95 @@
     border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(40deg);
   }
 
+  .toggle{
+    display:inline-flex;align-items:center;gap:6px;
+    background:#1b1611;border:1px solid #35291f;border-radius:999px;
+    padding:5px;font-size:12px;font-weight:700;letter-spacing:.03em;
+    text-transform:uppercase;cursor:pointer;user-select:none;margin-bottom:24px;
+  }
+  .toggle .pill{padding:7px 15px;border-radius:999px;color:var(--ink-dim);transition:all .2s ease}
+  .toggle .pill.active{background:var(--brand-red);color:#fff}
+  body.uv-vibe .toggle .pill.active{background:var(--uv);color:#fff}
+
+  .iso-stage{
+    position:relative;height:400px;display:flex;align-items:center;justify-content:center;
+    background:#050403;border-radius:12px;border:1px solid var(--line);
+    perspective:1300px;overflow:hidden;transition:background .4s ease;
+  }
+  body.uv-vibe .iso-stage{background:#07030f}
+
+  .iso-room{
+    position:relative;width:320px;height:260px;
+    transform-style:preserve-3d;
+    transform:rotateX(55deg) rotateZ(-42deg);
+  }
+  .iso-floor{
+    position:absolute;inset:0;background:#1c1712;
+    border:1px solid #453a2c;transform-style:preserve-3d;
+    box-shadow:0 0 40px rgba(0,0,0,.6) inset;
+  }
+  body.uv-vibe .iso-floor{background:#0e0a1c;border-color:var(--uv)}
+
+  .iso-wall{position:absolute;background:#170f0a;border:1px solid #6b5a42}
+  body.uv-vibe .iso-wall{background:#0f0824;border-color:var(--uv)}
+  .iso-wall-back{
+    width:320px;height:150px;left:0;top:0;
+    transform-origin:top;transform:rotateX(90deg);
+  }
+  .iso-wall-side{
+    width:260px;height:150px;left:0;top:0;
+    transform-origin:left;transform:rotateY(-90deg);
+  }
+
+  .wall-quote{
+    position:absolute;text-align:center;
+    font-weight:900;text-transform:uppercase;font-size:20px;line-height:1.2;
+    color:var(--brand-red);opacity:.95;text-shadow:0 2px 8px rgba(0,0,0,.8);
+    pointer-events:none;
+  }
+  .wall-quote.small{font-size:13px;width:110px}
+  body.uv-vibe .wall-quote{color:var(--uv);text-shadow:0 0 10px var(--uv);opacity:1}
+
+  .iso-block{
+    position:absolute;width:34px;height:34px;border-radius:8px;
+    background:#2a231a;border:1px solid #5a4c38;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:13px;color:var(--ink);
+    transform:translateZ(14px);box-shadow:0 14px 0 -6px rgba(0,0,0,.5);
+  }
+  body.uv-vibe .iso-block{background:#160f2e;border-color:var(--neon-cyan,#33e6d8);color:#fff;box-shadow:0 0 10px var(--uv)}
+
+  .iso-trainer{
+    position:absolute;width:80px;height:60px;border-radius:10px;
+    border:2px dashed var(--brand-red);display:flex;align-items:center;justify-content:center;
+    text-align:center;font-size:10px;font-weight:800;letter-spacing:.05em;
+    color:var(--ink);transform:translateZ(10px);
+  }
+  body.uv-vibe .iso-trainer{border-color:var(--uv);color:#c9a3ff}
+
+  .brand-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+  @media (max-width:640px){.brand-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:420px){.brand-grid{grid-template-columns:1fr}}
+  .brand-card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:20px;text-align:center;
+  }
+  .brand-card .mark{width:56px;height:56px;color:var(--brand-red);margin-bottom:12px}
+  .brand-card h3{margin:0 0 8px;font-size:15px}
+  .brand-card p{font-size:13px;margin:0}
+
+  .quote-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media (max-width:560px){.quote-grid{grid-template-columns:1fr}}
+  .quote-card{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;font-size:14px;color:var(--ink);line-height:1.5;
+  }
+  .quote-card.hero{
+    grid-column:1/-1;font-size:19px;font-weight:800;
+    border-color:rgba(204,0,0,.4);background:rgba(204,0,0,.08);
+  }
+  .quote-card span{display:block;margin-top:8px;font-size:11.5px;color:var(--ink-faint);font-weight:400}
+
   footer{
     margin-top:60px;padding-top:24px;border-top:1px solid var(--line);
     font-size:12.5px;color:var(--ink-faint);
@@ -108,12 +204,20 @@
     <div class="status">Status doc — updated July 27, 2026</div>
   </header>
 
+  <div class="flag">
+    <b>Heads up:</b> "The Ropes" is already the name of Teddy's own live app at teddyatlasboxing.com — tutorials, community, fight picks, paid coaching. We landed on this name independently; it needs his direct sign-off before it's official, since it's already his.
+  </div>
+
   <nav>
     <a href="#deal">Deal Structure</a>
     <a href="#space">The Space</a>
+    <a href="#vibe">Look &amp; Vibe</a>
     <a href="#format">The Circuit</a>
     <a href="#tech">Technology</a>
     <a href="#branding">Branding</a>
+    <a href="#names">Names &amp; Logos</a>
+    <a href="#words">Words on the Wall</a>
+    <a href="#testing">Testing It First</a>
     <a href="#legal">Legal &amp; Social</a>
     <a href="#open">What's Left</a>
   </nav>
@@ -145,6 +249,39 @@
     </div>
   </section>
 
+  <section id="vibe">
+    <h2>Look &amp; Vibe</h2>
+    <p class="lede">A styled 3D look at the room — walls, wall quotes, the black-light color shift. Not a precise floor plan (that's above); this is about how it should feel walking in.</p>
+
+    <div class="card">
+      <div class="toggle" id="isoToggle">
+        <div class="pill active" data-mode="day">Day</div>
+        <div class="pill" data-mode="uv">Blacklight</div>
+      </div>
+      <div class="iso-stage" id="isoStage">
+        <div class="wall-quote" style="top:40px; left:260px; width:180px;">"WE ARE<br>FIREMEN"</div>
+        <div class="wall-quote small" style="top:150px; left:20px;">"STYLES<br>MAKES<br>FIGHTS"</div>
+        <div class="iso-room">
+          <div class="iso-wall iso-wall-back"></div>
+          <div class="iso-wall iso-wall-side"></div>
+          <div class="iso-floor">
+            <div class="iso-block" style="left:30px; top:30px;">1</div>
+            <div class="iso-block" style="left:110px; top:20px;">2</div>
+            <div class="iso-block" style="left:190px; top:30px;">9</div>
+            <div class="iso-block" style="left:260px; top:60px;">8</div>
+            <div class="iso-block" style="left:20px; top:110px;">3</div>
+            <div class="iso-block" style="left:270px; top:130px;">7</div>
+            <div class="iso-block" style="left:40px; top:190px;">4</div>
+            <div class="iso-block" style="left:250px; top:200px;">6</div>
+            <div class="iso-block" style="left:150px; top:210px;">5</div>
+            <div class="iso-trainer" style="left:110px; top:100px;">TEDDY<br>JR</div>
+          </div>
+        </div>
+      </div>
+      <p style="margin:16px 0 0;font-size:12.5px;color:var(--ink-faint)">This is a fast styled render, not a photoreal one — for an actual walkthrough Teddy Jr can move through, next step is a real floor-plan tool (Coohom or Planner 5D) once he's given notes on this direction.</p>
+    </div>
+  </section>
+
   <section id="format">
     <h2>Format — The Circuit</h2>
     <p>Copying 9Round's proven 9-station structure directly rather than reinventing it:</p>
@@ -167,17 +304,14 @@
     <h2>Technology — Everything On the Table</h2>
     <p class="lede">Nothing here is decided. This is the real list of ideas being weighed, with an honest read on how proven or unproven each one is — not a single recommendation.</p>
 
-    <h3>What's on the iPad at each station?</h3>
-    <p>The open question that drives everything else. 9Round's own real model has <b>no instructional screens at all</b> — just a live trainer and a room-wide bell — which is the honest baseline to compare every idea below against. Options on the table, none picked yet:</p>
-    <ul>
-      <li>No screen at all — pure 9Round model, screen adds nothing</li>
-      <li>Live personal stats only (heart rate, effort) — no instruction, just data</li>
-      <li>Progress / streak / rank between rounds — gamified, not instructional</li>
-      <li>Real instructional content built from Teddy's own teaching</li>
-    </ul>
-
-    <h3>Teddy talking to you — video and audio</h3>
-    <p>The idea: an AI version of Teddy that talks to you in real time — his voice, possibly his face on screen — coaching you through the station. <b>This is unproven and may not work well.</b> The voice piece (cloning his real voice from his own audio) is realistic with existing tools. The video piece (a talking, animated version of his face) is a separate, harder step — it can look uncanny or off-putting, and nobody's tested how it actually feels to work out next to it. Worth prototyping and actually trying before deciding either way — not something to commit to blind.</p>
+    <h3>What's on the iPad at each station? Four real options</h3>
+    <p>The open question that drives everything else. 9Round's own real model has <b>no instructional screens at all</b> — just a live trainer and a room-wide bell — which is the honest baseline to compare every idea below against. None of these are picked yet:</p>
+    <ol>
+      <li><b>Teddy shoots fresh content on a cadence.</b> New videos weekly or monthly — real courses, Teddy just talking into a camera about what he's teaching that cycle. Teddy Jr then improvises off that material live on the floor, so it's always current, not one static library recorded once and never updated.</li>
+      <li><b>Teddy's voice plus video, for technique specifically.</b> An AI version of him — his real voice, possibly his face — walking someone through technique at a station. <b>Unproven, may not work well.</b> The voice (cloned from his own audio) is realistic with existing tools; the video/talking-face part is a harder, separate step that can look uncanny — worth prototyping and actually testing before betting on it.</li>
+      <li><b>AI punch tracking.</b> A live counter/gamified score from the camera. This part is solved and already working — see below.</li>
+      <li><b>No app at all.</b> Keep version one simple — pure 9Round model, screen adds nothing, all the teaching comes from Teddy Jr live on the floor.</li>
+    </ol>
 
     <h3>Computer vision — what a camera can actually do</h3>
     <p>Researched in real depth, tested against real footage. Two very different pieces:</p>
@@ -196,11 +330,76 @@
   <section id="branding">
     <h2>Branding</h2>
     <ul>
-      <li>Working name: <b>"The Ropes"</b></li>
+      <li>Working name: <b>"The Ropes"</b> — already Teddy's own name for his app at teddyatlasboxing.com, see the flag at the top of this page</li>
       <li>Palette: black / white / red, matching Teddy's existing public branding</li>
-      <li>Space vibe: blacklight/neon energy, referencing Life Time's black-light cycling studios — purple UV wash, neon accents, high energy — combined with Teddy's own words as wall graphics</li>
-      <li>A visual concept for the space is still in progress — the first pass wasn't good enough to send yet</li>
+      <li>Space vibe: blacklight/neon energy, referencing Life Time's black-light cycling studios — purple UV wash, neon accents, high energy</li>
     </ul>
+  </section>
+
+  <section id="names">
+    <h2>Names &amp; Logos — Five Directions</h2>
+    <p class="lede">Five alternate names, in case "The Ropes" doesn't end up available for the physical gym once Teddy weighs in. None of these are picked — a brainstorm to react to.</p>
+    <p class="callout">Real finding worth knowing: Teddy already has an established personal brand at teddyatlas.com — a distinctive hand-script "Teddy Atlas" wordmark over stark black-and-white photography. Whatever name/mark gets picked should probably riff on that existing style rather than clash with it. The marks below are simple placeholder shapes to communicate direction, not final art — I don't have an image-generation tool available to produce polished logo renders; that needs a real tool (Looka, Brandmark.io) or a designer.</p>
+
+    <div class="brand-grid">
+      <div class="brand-card">
+        <svg viewBox="0 0 120 120" class="mark"><circle cx="60" cy="60" r="46" fill="none" stroke="currentColor" stroke-width="4"/><path d="M60 24 a36 36 0 0 1 0 72" fill="currentColor" opacity=".85"/><path d="M40 50 h8 v-14 h4 v14 h8 M40 60 h20 M40 70 h8 v14 h4 v-14 h8" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+        <h3>Firehouse Boxing</h3>
+        <p>Leans straight into "We Are Firemen" — his single most famous moment. Gives the space a literal, coherent visual world: bell, red brick, firehouse signage, alarm-style round bell for the station rotation.</p>
+      </div>
+
+      <div class="brand-card">
+        <svg viewBox="0 0 120 120" class="mark"><path d="M20 100 L20 30 L70 20 M20 30 L100 30" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="square"/><circle cx="20" cy="30" r="7" fill="currentColor"/></svg>
+        <h3>The Corner</h3>
+        <p>Boxing term for a trainer's corner — directly evokes his legendary corner speeches. The mark is a literal ring corner-post. Simple, ownable, not generic "gym" branding.</p>
+      </div>
+
+      <div class="brand-card">
+        <svg viewBox="0 0 120 120" class="mark"><path d="M60 20 C40 20 25 40 25 62 C25 85 42 100 60 100 C78 100 95 85 95 62" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/><line x1="30" y1="100" x2="90" y2="100" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><line x1="60" y1="20" x2="60" y2="6" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
+        <h3>Atlas Ring Co.</h3>
+        <p>Straightforward use of his surname — Atlas also evokes strength and mythology (holding the world up). Clean, timeless, easiest of the five to clear for trademark.</p>
+      </div>
+
+      <div class="brand-card">
+        <svg viewBox="0 0 120 120" class="mark"><circle cx="60" cy="60" r="42" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="60" cy="60" r="22" fill="none" stroke="currentColor" stroke-width="4"/><line x1="60" y1="18" x2="60" y2="38" stroke="currentColor" stroke-width="4"/><line x1="60" y1="82" x2="60" y2="102" stroke="currentColor" stroke-width="4"/><line x1="18" y1="60" x2="38" y2="60" stroke="currentColor" stroke-width="4"/><line x1="82" y1="60" x2="102" y2="60" stroke="currentColor" stroke-width="4"/></svg>
+        <h3>Neutral Corner</h3>
+        <p>Boxing term with a nice double meaning. The mark is a target/ring-post crosshair — distinctive, not a cliché boxing-glove logo.</p>
+      </div>
+
+      <div class="brand-card">
+        <svg viewBox="0 0 120 120" class="mark"><path d="M60 25 C42 25 34 40 34 55 v15 l-8 12 h68 l-8 -12 v-15 c0 -15 -8 -30 -26 -30 Z" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="60" cy="98" r="6" fill="currentColor"/><path d="M20 40 q10 5 12 15 M100 40 q-10 5 -12 15" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+        <h3>Bell to Bell</h3>
+        <p>Boxing term for going the full distance, round after round. Energetic, active name that matches a bell-driven station format directly. Mark is the literal bell.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="words">
+    <h2>Words on the Wall</h2>
+    <p class="lede">His actual real quotes, pulled directly from his own interviews — not written for him. Final wall selection is his call; this is the shortlist.</p>
+    <div class="quote-grid">
+      <div class="quote-card hero">"We are firemen. The fire's coming. Are you ready for the fire?"<span>— corner speech to Timothy Bradley, widely documented</span></div>
+      <div class="quote-card">"You're not in a fight until there's pressure. Resistance. Overcoming something. Otherwise, it's just an exhibition."</div>
+      <div class="quote-card">"It does not matter who is stronger or more aggressive or even throws harder punches. All that matters is what lands."</div>
+      <div class="quote-card">"I'll take a reliable fighter over a fast guy or a powerful guy any day of the week."</div>
+      <div class="quote-card">"Character is one of the truly great and underrated aspects of being successful. Passion is important too."</div>
+      <div class="quote-card">"Styles makes fights."</div>
+      <div class="quote-card">"Boxing is like a cockroach, a shark. It survives."</div>
+      <div class="quote-card">"When you have the trust of a fighter... you better not screw it up."</div>
+      <div class="quote-card">"As a trainer I realise... it's how you deal with that fear, not your thoughts of it."</div>
+      <div class="quote-card">"In life, we're all fighting for something... often it's the simplest things, like taking care of your family or fighting to find out who you are."</div>
+    </div>
+    <p style="margin-top:16px;font-size:12.5px;color:var(--ink-faint)">Sourced from BrainyQuote and AZQuotes, cross-checked against interview/video clips where findable. Worth his direct sign-off before anything goes on a physical wall.</p>
+  </section>
+
+  <section id="testing">
+    <h2>Testing It First — Pop-Up Clinics</h2>
+    <p>Before signing any lease: run a pop-up clinic at a gym Teddy already has real ties to, to build buzz and prove demand.</p>
+    <div class="card">
+      <h3 style="margin-top:0">Gleason's Gym — the strongest real lead</h3>
+      <p>Brooklyn (DUMBO), the oldest active boxing gym in the US, since 1937. This isn't a cold outreach target — Teddy has a genuine, decades-documented history there, training fighters under the Cus D'Amato lineage going back to the 1980s. Gleason's also already runs a recurring guest-clinic program (Personal Trainer's Clinic, All Female Boxing Clinic, Masters Sparring Clinic) in a proven weekend format — 2 days, ~8 classes, priced as a package rather than hourly rental.</p>
+      <p style="margin-bottom:0">Typical cost for a name-trainer weekend clinic runs roughly $400–500/attendee, or hourly space rental elsewhere in NYC runs $250–1,000+/hr for name-brand gyms. A 6–12 week pre-sale waitlist campaign (100–150 "founding members" at a discount) is standard practice for validating real demand before committing to a lease.</p>
+    </div>
   </section>
 
   <section id="legal">
@@ -215,16 +414,42 @@
 
     <h3>Execution once that's settled</h3>
     <ul>
-      <li>Form the NJ business entity (an LLC is standard for a single-location gym)</li>
+      <li>Form the NJ business entity — a direct New Jersey LLC ($125 filing fee) is simpler and cheaper than routing through an Illinois parent entity plus NJ foreign qualification, unless there's a specific reason to fold this into an existing Illinois corporate structure (that'd cost roughly double in ongoing filings — worth asking why before defaulting to it)</li>
       <li>An operating/partnership agreement spelling out Teddy Jr's management role and pay, and Jay/Louis's role</li>
-      <li>A written name/likeness agreement for using Teddy's name and brand commercially — in writing, not a handshake, since the whole venture's value rides on his name</li>
-      <li>Standard boxing-gym liability waiver plus an assault/contact-sport insurance rider</li>
+      <li>A written name/likeness agreement for using Teddy's name and brand commercially — in writing, not a handshake, since the whole venture's value rides on his name, and doubly true now that "The Ropes" turns out to already be his own product</li>
+      <li>Standard boxing-gym liability waiver plus an assault/contact-sport insurance rider — New Jersey courts do generally uphold these (Stelluti v. Casapenn, 2011) for ordinary negligence, but not for gross negligence or coaching/supervision failures, so it needs to be drafted for a real contact-sport gym specifically, not a generic template</li>
       <li>Lease review once a Central Ave space is chosen</li>
-      <li>A basic trademark check on "The Ropes" before locking it in</li>
+      <li>Confirm "The Ropes" name usage directly with Teddy — not really a "trademark check" anymore since we now know he already owns it</li>
     </ul>
 
-    <h3>Social media — harnessing what Teddy already has</h3>
-    <p><i>Deep research in progress on his actual reach and specific ways to use AI on it — this section is getting rebuilt with real numbers and real ideas, not generic advice. Check back shortly.</i></p>
+    <div class="card">
+      <h3 style="margin-top:0">NJ Health Club Services Act — a real requirement, not optional</h3>
+      <p>New Jersey has a specific law (N.J.S.A. 56:8-39) covering any business devoting 40%+ of its space to fitness services — this gym qualifies. It requires registering with the NJ Division of Consumer Affairs before opening, and if memberships run longer than 3 months, posting a surety bond (10% of prior-year gross income, $25K–$50K floor/ceiling). Members also get a mandatory 3-day cancellation right. A month-to-month membership model with no long-term contracts sidesteps the bonding requirement — worth deciding the membership structure with this in mind, not as an afterthought.</p>
+      <p style="margin-bottom:0">Jersey City also requires a separate local Commerce Division business license beyond state registration, plus a Certificate of Occupancy for the fit-out.</p>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">The $150K / $100K math — real numbers, and it's tight</h3>
+      <p>If Teddy Jr takes $150K of the $250K as salary, that leaves $100K for rent and legal before opening. Running the actual numbers against the Central Ave space (~$6,000/mo):</p>
+      <ul>
+        <li>12 months' rent: $72,000</li>
+        <li>Security deposit (commercial landlords often want 3+ months from a new operator, more for a first-time contact-sport tenant): $18,000–36,000</li>
+        <li>LLC formation + attorney (operating agreement, licensing agreement, real liability waiver): ~$3,500</li>
+        <li>Insurance (general liability + contact-sport rider): ~$3,000</li>
+      </ul>
+      <p style="margin-bottom:0"><b>Total: $96,500–114,500</b> — before a single dollar of buildout (flooring, bags, mats, iPads, signage), which is a separate five-figure cost on a 3,000 sqft space. <b>Honest read: $100K is not enough</b> once buildout is counted. Either the salary/budget split needs to shift, more capital needs to come in, or lease terms need to land meaningfully better than these base-case numbers.</p>
+    </div>
+
+    <h3>Social media — what Teddy already has, and non-obvious ways to use it</h3>
+    <p><b>His real reach right now:</b> ~332K YouTube subscribers ("THE FIGHT with Teddy Atlas," 1,800+ videos), ~205K Instagram, ~76.5K X/Twitter. His ~30-year run as ESPN's boxing analyst <b>ended in November 2025</b> — he's now fully independent, which actually strengthens the pitch: no network exclusivity, and real incentive to build his own thing harder than ever. His audience skews national, not local — mostly not geographically near wherever the gym lands, which matters for how it gets used.</p>
+    <p><b>Existing asset worth knowing about:</b> he already sells a $97 structured boxing instructional product ("Fundamentals of Boxing") and, per the flag at the top of this page, already runs the teddyatlasboxing.com "The Ropes" app with tutorials, community, and paid coaching tiers.</p>
+    <ul>
+      <li><b>Mine the archive.</b> 1,800 YouTube videos plus 30 years of ESPN commentary is a huge amount of real teaching content already sitting there. AI transcription + classification can pull out standalone teachable moments automatically — turns a filming bottleneck into a curation problem that's already mostly solved.</li>
+      <li><b>Build a "coaching philosophy" reference document from his own words.</b> Transcribe and analyze his real interviews so any AI-assisted copywriting or in-app content actually sounds like him, grounded in what he's really said — not invented.</li>
+      <li><b>Use his non-local following for the pop-up clinic, not just the gym.</b> Since most of his audience isn't near NJ, a pop-up at Gleason's (see above) reaches people who'd never walk into the physical gym but will show up for a one-time event — different audience, different job.</li>
+      <li><b>Turn the ESPN exit into the actual launch story.</b> "30 years commentating, now it's personal" is a real, timely hook tied to a real recent event, not generic gym marketing.</li>
+      <li><b>Let AI do a first pass on his paid video evaluations</b> (already a feature on his existing app) — his time is the bottleneck on that premium tier; AI flagging the priority issues first lets his limited hours go further.</li>
+    </ul>
   </section>
 
   <section id="open">
@@ -242,3 +467,16 @@
     This is a working plan, not a finished proposal — everything above is open for discussion.
   </footer>
 </div>
+
+<script>
+  var isoToggle = document.getElementById('isoToggle');
+  if (isoToggle) {
+    isoToggle.addEventListener('click', function(e) {
+      var pill = e.target.closest('.pill');
+      if (!pill) return;
+      isoToggle.querySelectorAll('.pill').forEach(function(p){ p.classList.remove('active'); });
+      pill.classList.add('active');
+      document.body.classList.toggle('uv-vibe', pill.dataset.mode === 'uv');
+    });
+  }
+</script>
