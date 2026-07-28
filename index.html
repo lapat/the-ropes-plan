@@ -64,7 +64,7 @@
 
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:18px 0}
 
-  table{width:100%;border-collapse:collapse;margin:8px 0 20px;font-size:14.5px}
+  table{width:100%;border-collapse:collapse;margin:8px 0 20px;font-size:14.5px;display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
   th{
     text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
     color:var(--ink-faint);font-weight:700;padding:0 12px 10px 0;border-bottom:1px solid var(--line);
@@ -124,6 +124,9 @@
     transform-style:preserve-3d;
     transform:rotateX(55deg) rotateZ(-42deg);
   }
+  @media (max-width:480px){
+    .iso-room{transform:scale(0.62) rotateX(55deg) rotateZ(-42deg)}
+  }
   .iso-floor{
     position:absolute;inset:0;background:#1c1712;
     border:1px solid #453a2c;transform-style:preserve-3d;
@@ -142,6 +145,7 @@
     transform-origin:left;transform:rotateY(-90deg);
   }
 
+  @media (max-width:480px){.wall-quote{display:none}}
   .wall-quote{
     position:absolute;text-align:center;
     font-weight:900;text-transform:uppercase;font-size:20px;line-height:1.2;
