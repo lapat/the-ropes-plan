@@ -413,7 +413,35 @@ h1 {
   }
   .swipe-hint span { display: inline-block; animation: swipe-nudge 1.1s ease-in-out infinite; }
 }
+
+.back-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  background: rgba(16, 13, 9, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+.back-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 1400px;
+  padding: 16px 32px;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+.back-link:active { opacity: 0.7; }
+.back-link .arrow { font-size: 18px; }
 </style>
+
+<div class="back-bar"><a class="back-link" href="index.html" onclick="if(history.length>1){history.back();return false;}"><span class="arrow">&#8592;</span> Back to the plan</a></div>
 
 <div class="page">
   <div class="masthead">
