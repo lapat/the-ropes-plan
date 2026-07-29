@@ -139,6 +139,12 @@
   .photo-card img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover}
   .photo-card span{display:block;padding:10px 12px;font-size:12px;color:var(--ink-faint)}
 
+  .app-brand{margin:4px 0 22px}
+  .app-wordmark{font-size:clamp(26px,5.5vw,38px);font-weight:900;letter-spacing:.01em;line-height:.95;margin:0 0 8px;text-transform:uppercase}
+  .app-wordmark span{color:var(--brand-red)}
+  .app-tagline{margin:0;font-size:14px;color:var(--ink-dim)}
+  .app-tagline b{color:var(--ink);font-weight:700}
+
   .cta-button{display:inline-flex;align-items:center;gap:10px;background:var(--brand-red);color:#fff;font-weight:800;font-size:15px;letter-spacing:.02em;text-decoration:none;padding:16px 26px;border-radius:12px;margin:4px 0 6px;box-shadow:0 10px 28px rgba(204,0,0,.35);transition:transform .15s ease}
   .cta-button:hover{transform:translateY(-2px)}
   .cta-button .arrow{font-size:18px;line-height:1}
@@ -161,7 +167,8 @@
     background:var(--card);border:1px solid var(--line);border-radius:14px;
     padding:20px;text-align:center;
   }
-  .brand-card .mark{width:56px;height:56px;color:var(--brand-red);margin-bottom:12px}
+  .brand-card .mark-badge{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .brand-card .mark{width:34px;height:34px}
   .brand-card h3{margin:0 0 8px;font-size:15px}
   .brand-card p{font-size:13px;margin:0}
 
@@ -304,37 +311,46 @@
 
   <section id="names">
     <h2>Names &amp; Logos — Five Directions</h2>
-    <p class="callout">Real finding worth knowing: Teddy already has an established personal brand at teddyatlas.com — a distinctive hand-script "Teddy Atlas" wordmark over stark black-and-white photography. Whatever name/mark gets picked should probably riff on that existing style rather than clash with it. The marks below are simple placeholder shapes to communicate direction, not final art — I don't have an image-generation tool available to produce polished logo renders; that needs a real tool (Looka, Brandmark.io) or a designer.</p>
 
     <div class="brand-grid">
       <div class="brand-card">
-        <svg viewBox="0 0 120 120" class="mark"><circle cx="60" cy="60" r="46" fill="none" stroke="currentColor" stroke-width="4"/><path d="M60 24 a36 36 0 0 1 0 72" fill="currentColor" opacity=".85"/><path d="M40 50 h8 v-14 h4 v14 h8 M40 60 h20 M40 70 h8 v14 h4 v-14 h8" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+        <div class="mark-badge" style="background:rgba(255,106,61,.14)">
+          <svg viewBox="0 0 120 120" class="mark" style="color:#ff6a3d"><circle cx="60" cy="60" r="46" fill="none" stroke="currentColor" stroke-width="4"/><path d="M60 24 a36 36 0 0 1 0 72" fill="currentColor" opacity=".85"/><path d="M40 50 h8 v-14 h4 v14 h8 M40 60 h20 M40 70 h8 v14 h4 v-14 h8" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+        </div>
         <h3>Firehouse Boxing</h3>
         <p>Leans straight into "We Are Firemen" — his single most famous moment. Gives the space a literal, coherent visual world: bell, red brick, firehouse signage, alarm-style round bell for the station rotation.</p>
       </div>
 
       <div class="brand-card">
-        <svg viewBox="0 0 120 120" class="mark"><path d="M20 100 L20 30 L70 20 M20 30 L100 30" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="square"/><circle cx="20" cy="30" r="7" fill="currentColor"/></svg>
+        <div class="mark-badge" style="background:rgba(204,0,0,.14)">
+          <svg viewBox="0 0 120 120" class="mark" style="color:#cc0000"><path d="M20 100 L20 30 L70 20 M20 30 L100 30" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="square"/><circle cx="20" cy="30" r="7" fill="currentColor"/></svg>
+        </div>
         <h3>The Corner</h3>
-        <p>Boxing term for a trainer's corner — directly evokes his legendary corner speeches. The mark is a literal ring corner-post. Simple, ownable, not generic "gym" branding.</p>
+        <p>Boxing term for a trainer's corner — directly evokes his legendary corner speeches. The mark is a literal ring corner-post, in red — the actual corner color from a real boxing ring. Simple, ownable, not generic "gym" branding.</p>
       </div>
 
       <div class="brand-card">
-        <svg viewBox="0 0 120 120" class="mark"><path d="M60 20 C40 20 25 40 25 62 C25 85 42 100 60 100 C78 100 95 85 95 62" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/><line x1="30" y1="100" x2="90" y2="100" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><line x1="60" y1="20" x2="60" y2="6" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
+        <div class="mark-badge" style="background:rgba(201,162,39,.15)">
+          <svg viewBox="0 0 120 120" class="mark" style="color:#c9a227"><path d="M60 20 C40 20 25 40 25 62 C25 85 42 100 60 100 C78 100 95 85 95 62" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/><line x1="30" y1="100" x2="90" y2="100" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><line x1="60" y1="20" x2="60" y2="6" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
+        </div>
         <h3>Atlas Ring Co.</h3>
-        <p>Straightforward use of his surname — Atlas also evokes strength and mythology (holding the world up). Clean, timeless, easiest of the five to clear for trademark.</p>
+        <p>Straightforward use of his surname — Atlas also evokes strength and mythology (holding the world up). Gold for championship weight. Clean, timeless, easiest of the five to clear for trademark.</p>
       </div>
 
       <div class="brand-card">
-        <svg viewBox="0 0 120 120" class="mark"><circle cx="60" cy="60" r="42" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="60" cy="60" r="22" fill="none" stroke="currentColor" stroke-width="4"/><line x1="60" y1="18" x2="60" y2="38" stroke="currentColor" stroke-width="4"/><line x1="60" y1="82" x2="60" y2="102" stroke="currentColor" stroke-width="4"/><line x1="18" y1="60" x2="38" y2="60" stroke="currentColor" stroke-width="4"/><line x1="82" y1="60" x2="102" y2="60" stroke="currentColor" stroke-width="4"/></svg>
+        <div class="mark-badge" style="background:rgba(106,140,175,.15)">
+          <svg viewBox="0 0 120 120" class="mark" style="color:#6a8caf"><circle cx="60" cy="60" r="42" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="60" cy="60" r="22" fill="none" stroke="currentColor" stroke-width="4"/><line x1="60" y1="18" x2="60" y2="38" stroke="currentColor" stroke-width="4"/><line x1="60" y1="82" x2="60" y2="102" stroke="currentColor" stroke-width="4"/><line x1="18" y1="60" x2="38" y2="60" stroke="currentColor" stroke-width="4"/><line x1="82" y1="60" x2="102" y2="60" stroke="currentColor" stroke-width="4"/></svg>
+        </div>
         <h3>Neutral Corner</h3>
-        <p>Boxing term with a nice double meaning. The mark is a target/ring-post crosshair — distinctive, not a cliché boxing-glove logo.</p>
+        <p>Boxing term with a nice double meaning. Cool slate blue on purpose — the one direction that isn't red or gold, matching the "neutral" idea instead of just restating it. The mark is a target/ring-post crosshair — distinctive, not a cliché boxing-glove logo.</p>
       </div>
 
       <div class="brand-card">
-        <svg viewBox="0 0 120 120" class="mark"><path d="M60 25 C42 25 34 40 34 55 v15 l-8 12 h68 l-8 -12 v-15 c0 -15 -8 -30 -26 -30 Z" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="60" cy="98" r="6" fill="currentColor"/><path d="M20 40 q10 5 12 15 M100 40 q-10 5 -12 15" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+        <div class="mark-badge" style="background:rgba(217,164,65,.15)">
+          <svg viewBox="0 0 120 120" class="mark" style="color:#d9a441"><path d="M60 25 C42 25 34 40 34 55 v15 l-8 12 h68 l-8 -12 v-15 c0 -15 -8 -30 -26 -30 Z" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="60" cy="98" r="6" fill="currentColor"/><path d="M20 40 q10 5 12 15 M100 40 q-10 5 -12 15" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+        </div>
         <h3>Bell to Bell</h3>
-        <p>Boxing term for going the full distance, round after round. Energetic, active name that matches a bell-driven station format directly. Mark is the literal bell.</p>
+        <p>Boxing term for going the full distance, round after round. Energetic, active name that matches a bell-driven station format directly. Mark is the literal bell, in brass.</p>
       </div>
     </div>
   </section>
@@ -342,7 +358,12 @@
   <section id="visuals">
     <h2>Visual Concepts — Station Screens</h2>
 
-    <a class="cta-button" href="https://claude.ai/code/artifact/80615409-5fc7-406e-ae75-dde8bb805641" target="_blank" rel="noopener">Open the interactive mockup <span class="arrow">&#8594;</span></a>
+    <div class="app-brand">
+      <p class="app-wordmark">ATLAS <span>APP</span></p>
+      <p class="app-tagline">The tech running every station — camera tracking, punch counts, round timers, Teddy's own coaching. Working name only, not locked in — internally this is built as <b>PunchVision</b>.</p>
+    </div>
+
+    <a class="cta-button" href="station-screen-concept.html" target="_blank" rel="noopener">Open the interactive mockup <span class="arrow">&#8594;</span></a>
     <p style="margin:-10px 0 20px;font-size:12.5px;color:var(--ink-faint)">Live and clickable — all three directions below, full-size. Screenshots underneath if you just want the fast version.</p>
 
     <div class="photo-grid">
@@ -356,7 +377,6 @@
       <li><b>Fight Card</b> — broadcast HUD register. Live camera feed fills the whole screen, stats ride a lower-third bar like a televised fight graphics package.</li>
       <li><b>Trainer's Board</b> — analog gym-wall register. Plain scoreboard clock, tally-mark punch count, chalk-underline type — the version furthest from looking like "an app."</li>
     </ul>
-    <p class="callout"><b>Flag before this goes further:</b> all three use a warm coral-and-brass accent on near-black, matched to the punch-counter app's own existing palette (<code>Theme.swift</code>) — not the plain black/white/red noted above, and not teddyatlas.com's hand-script-on-black-and-white look. That was a deliberate exploration, not an oversight, but it needs a real decision: extend Teddy's existing black/white(/red) identity, or treat the station screen as its own sub-brand the way FightCamp's app doesn't try to look like a magazine cover.</p>
     <p class="callout"><b>Update (2026-07-28):</b> the mockup (same link above) now also has a straight black/white/red recolor of Concept A side by side with the original, plus five named palette directions total (Ember/current, Corner Classic/B&amp;W&amp;red, Championship/oxblood+gold, Quiet Corner/grayscale+red-only-for-live, Ring Magazine/navy+cream+red) so the palette call is a real side-by-side instead of an abstract question. Nothing picked yet — that's still open.</p>
 
     <h3>The real app, right now — not a mockup</h3>
@@ -392,7 +412,6 @@
       <div class="quote-card">"As a trainer I realise... it's how you deal with that fear, not your thoughts of it."</div>
       <div class="quote-card">"In life, we're all fighting for something... often it's the simplest things, like taking care of your family or fighting to find out who you are."</div>
     </div>
-    <p style="margin-top:16px;font-size:12.5px;color:var(--ink-faint)">Sourced from BrainyQuote and AZQuotes, cross-checked against interview/video clips where findable. Worth his direct sign-off before anything goes on a physical wall.</p>
   </section>
 
   <section id="testing">
@@ -408,8 +427,6 @@
   <section id="legal">
     <h2>Legal &amp; Social Media Prep</h2>
     <p>Prep work that can start before the space is even secured, per the "sooner the better" priority.</p>
-
-    <p class="callout">Suggested order below — this is one reasonable sequence, not the only way to do it. Teddy and Teddy Jr should treat this as a starting checklist to adjust, not a script.</p>
 
     <h3>The actual steps, in order</h3>
     <ol>
@@ -442,6 +459,19 @@
       </table>
       <p style="margin-bottom:0">Bottom line: the NY bonding requirement alone ($50–150K) is 2–3x NJ's ($25–50K), and the newspaper-publication step is a real cost and timeline item that simply doesn't exist in NJ. If Staten Island ever moves past "worth keeping on the list," redo this whole legal section for NY specifically rather than assuming the NJ steps transfer over.</p>
     </div>
+
+    <h3>The same steps, for New York — if it's Staten Island instead of NJ</h3>
+    <ol>
+      <li><b>Deal structure is confirmed.</b> Same as the NJ path — the $250K is a loan/gift, not a capital contribution.</li>
+      <li><b>Decide whose name the business runs under</b> — the LLC, or Teddy/Teddy Jr personally.</li>
+      <li><b>Form the NY LLC.</b> File Articles of Organization with the NY Dept of State ($200), then publish notice in the two newspapers the Richmond County Clerk designates for 6 consecutive weeks, and file a Certificate of Publication within 120 days ($50) — the step NJ doesn't have.</li>
+      <li><b>Get an EIN and register for NY State tax/employer accounts</b> — required before hiring anyone or collecting payment.</li>
+      <li><b>Register under General Business Law Article 30</b> and post the required bond ($50K–150K depending on membership term length) before signing any membership contracts — this is NY's health club law, not the same one as NJ's, and the bond is real money to have ready before opening.</li>
+      <li><b>Get a real NY attorney</b> to draft the operating/partnership agreement, the name/likeness licensing agreement, and the liability waiver — same three documents as the NJ path, but drafted under NY law.</li>
+      <li><b>Confirm "The Ropes" name directly with Teddy</b> — same step regardless of state.</li>
+      <li><b>Get general liability + contact-sport insurance</b> quoted and bound before signing a lease.</li>
+      <li><b>Tour and sign the lease</b>, then get the NYC business license (Dept of Consumer and Worker Protection) and Certificate of Occupancy (NYC Dept of Buildings) for the fit-out.</li>
+    </ol>
 
     <div class="card">
       <h3 style="margin-top:0">Equipment budget — gear, flooring, iPads</h3>
@@ -484,6 +514,23 @@
       </table>
       <p><b>Compressed range if the first three levers land: roughly $146,500–$244,500 total</b> (12 months' rent $72,000 + deposit $18,000–36,000 + legal $6,500 + phased equipment on the smaller footprint $20,000–40,000 + net buildout after TI credit $30,000–90,000). That's real progress from $274,500–416,500, and the low end fits inside $250K with room left over.</p>
       <p style="margin-bottom:0">Getting the whole thing near $125K in construction/equipment specifically would require best-case results on every lever at once — not something to plan around, but not impossible either if 298/367 Central Ave turns out to have been a fitness space before. The honest move is the same as above: <b>get a real contractor's quote and ask the landlord about a TI allowance before finalizing anything.</b></p>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">What's not in the budget yet</h3>
+      <p>A few real costs this plan hasn't itemized anywhere above — worth pricing in before finalizing a number.</p>
+      <table>
+        <tr><th>Item</th><th>Why it's real</th><th>Confidence</th></tr>
+        <tr><td>AED (defibrillator) + staff training</td><td>NJ law requires it — health clubs must have an AED on-site and staff trained to use it (N.J.S.A. 2A:62A-31). Not optional, and not currently in the equipment list. Unit runs roughly $1,200–2,000; CPR/AED certification is typically $35–75/person.</td><td>High — real statute, directly confirmed</td></tr>
+        <tr><td>Workers' compensation insurance</td><td>Legally required in NJ the moment anyone is hired (front desk, part-time trainers) — separate from the general liability/contact-sport insurance already budgeted.</td><td>High — standard NJ employer requirement, exact premium not priced here</td></tr>
+        <tr><td>Membership management software</td><td>Billing, scheduling, waivers, and member check-in need a real system (Mindbody, Zen Planner, GymMaster, etc.) — typically $100–400/month depending on features and member count.</td><td>Moderate — real category of tool, not this specific business's quote</td></tr>
+        <tr><td>Music licensing</td><td>Playing music in a commercial space legally requires a public performance license (BMI/ASCAP, or a compliant service like Soundtrack Your Brand) — a personal Spotify account isn't licensed for this use. Easy to miss, real compliance risk if skipped.</td><td>Moderate — well-established requirement, not NJ-specific research</td></tr>
+        <tr><td>Property/contents insurance</td><td>Separate from general liability — covers the buildout and equipment itself against fire, theft, and water damage. Landlords and any future lender typically require proof of this.</td><td>Moderate — standard for any built-out commercial space</td></tr>
+        <tr><td>Utility deposits</td><td>New businesses with no credit history often have to post a deposit for electric/gas/water/internet accounts — separate from the landlord's security deposit.</td><td>Moderate — standard for a first-time commercial account</td></tr>
+        <tr><td>ADA-compliant bathroom + entrance</td><td>Gyms are places of public accommodation under the ADA — if the space isn't already accessible (ramp/entrance, an accessible bathroom), bringing it up to code is a real construction cost, potentially a large one, and directly tied to the raw-shell-vs-second-generation-space question above.</td><td>High as a legal requirement — cost depends entirely on the specific space's current condition, not estimated here</td></tr>
+        <tr><td>Commercial trash/recycling pickup + alarm/security monitoring</td><td>Neither is optional for a real retail space — commercial trash service is separate from residential pickup, and most landlords or insurers expect a monitored alarm system.</td><td>Moderate — standard small-business costs, not priced for this specific space</td></tr>
+      </table>
+      <p style="margin-bottom:0">None of these are individually huge, but together they're real recurring and one-time costs that don't show up in the buildout/equipment numbers above — worth a line item once a specific space and staffing plan are locked in.</p>
     </div>
 
     <div class="card">
@@ -568,6 +615,18 @@
     </div>
 
     <div class="card">
+      <h3 style="margin-top:0">Merch & retail — a second real revenue line, not hypothetical</h3>
+      <p>Not invented: Teddy already has real branded apparel ("We Are Firemen. We Live In The Heat." hoodies) and an existing $97 "Fundamentals of Boxing" digital product — a physical location adds a retail line to sell what already exists, not a new product to develop.</p>
+      <table>
+        <tr><th>Scenario</th><th>Merch/retail revenue</th></tr>
+        <tr><td>Conservative launch</td><td>$500–800/mo</td></tr>
+        <tr><td>Growth</td><td>$800–1,400/mo</td></tr>
+        <tr><td>Stabilized</td><td>$1,400–2,000+/mo</td></tr>
+      </table>
+      <p style="margin-bottom:0">Sourced range ($500–2,000/mo "depending on member count and product selection") is a general boutique-gym benchmark, not specific to this studio or to Teddy's following — his existing audience (205K Instagram, 332K YouTube) is meaningfully larger than a typical independent studio owner's, so the real number could land above this range, but that's upside to test, not something to budget on. Adds roughly <b>$6,000–24,000/yr</b> on top of membership revenue across the three scenarios.</p>
+    </div>
+
+    <div class="card">
       <h3 style="margin-top:0">Opening timeline — phase by phase</h3>
       <table>
         <tr><th>Phase</th><th>Duration</th></tr>
@@ -581,6 +640,20 @@
       </table>
       <p><b>Realistic total: 3.5–6.5 months</b> if permitting goes smoothly. <b>Up to 4–8 months</b> if municipal permitting hits delays — permitting is consistently flagged as the single biggest variable in small retail/personal-service buildout timelines, more than construction itself.</p>
       <p style="margin-bottom:0"><b>One thing to actually call and confirm before finalizing this plan:</b> the NJ Health Club Services Act bond dollar amount and processing turnaround aren't published anywhere online — NJ Consumer Affairs' own page omits the figure. Call the Regulated Business Section directly: <a href="tel:9735046370">(973) 504-6370</a> or <a href="mailto:regulatedbusiness@dca.njoag.gov">regulatedbusiness@dca.njoag.gov</a>.</p>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">Real fight dates, if one's worth building toward</h3>
+      <p>None of these should be the grand-opening target on their own — the timeline above starts counting from lease signing, which hasn't happened yet, so anything before roughly November 2026 is already too soon for a real buildout. But they're real, dated events worth knowing about, especially the one actually in New Jersey.</p>
+      <table>
+        <tr><th>Date</th><th>Event</th><th>Relevance</th></tr>
+        <tr><td>Sept 4, 2026</td><td>Andy Ruiz Jr vs. Damian Knyba — Prudential Center, Newark, NJ (DAZN)</td><td>Too soon to be the opening, but it's literally in-state — real potential for a pop-up/marketing tie-in, not a launch date</td></tr>
+        <tr><td>Sept 12, 2026</td><td>Ryan Garcia vs. Conor Benn — Las Vegas, WBC welterweight title</td><td>National attention, good content-calendar hook, too soon to open around</td></tr>
+        <tr><td>Sept 27, 2026</td><td>Naoya Inoue vs. Kanshiro Nasukawa II — Tokyo</td><td>Too soon; international, lower local relevance</td></tr>
+        <tr><td>Oct 31, 2026</td><td>Canelo Álvarez vs. Christian Mbilli — Riyadh, Saudi Arabia</td><td>Right at the edge of the fast-case timeline if lease signs immediately — still tight</td></tr>
+        <tr><td>November 2026 (exact date TBA)</td><td>Tyson Fury vs. Anthony Joshua — officially slated for November 2026</td><td>The one worth actually watching. If the lease signs soon and buildout goes smoothly (the 3.5-month fast case), a November opening is aggressive but not impossible — this is the realistic aspirational target, not a promise.</td></tr>
+      </table>
+      <p style="margin-bottom:0">Honest read: given nothing is signed yet, a late-2026 opening tied to the Fury–Joshua card is the best real target to build toward, with the Newark card in September used for pre-launch buzz (pop-up clinic, social content, founding-member waitlist) rather than as the opening itself.</p>
     </div>
   </section>
 
@@ -742,10 +815,6 @@
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, w, h);
 
-      ctx.strokeStyle = 'rgba(240,236,228,0.5)';
-      ctx.lineWidth = w * 0.012;
-      ctx.strokeRect(w * 0.02, h * 0.02, w * 0.96, h * 0.96);
-
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       var maxWidth = w * 0.86;
@@ -793,7 +862,7 @@
   floor.rotation.x = -Math.PI / 2;
   scene.add(floor);
 
-  var wallMat = new THREE.MeshStandardMaterial({ color: 0x170f0a, roughness: 0.95 });
+  var wallMat = new THREE.MeshStandardMaterial({ color: 0x030201, roughness: 0.95 });
   var backWall = new THREE.Mesh(new THREE.PlaneGeometry(W, H), wallMat);
   backWall.position.set(0, H / 2, -D / 2);
   scene.add(backWall);
@@ -809,11 +878,23 @@
   backQuote.position.set(0, H * 0.48, -D / 2 + 0.03);
   scene.add(backQuote);
 
-  var sideTex = makeQuoteTexture('"STYLES MAKES FIGHTS"', 824, 400);
-  var sideQuote = new THREE.Mesh(new THREE.PlaneGeometry(D * 0.6, H * 0.7), new THREE.MeshBasicMaterial({ map: sideTex, transparent: true }));
-  sideQuote.position.set(-W / 2 + 0.03, H * 0.55, 0);
+  var sideTex = makePhotoQuoteTexture('images/teddy-fists-portrait.jpg', 'STYLES MAKES FIGHTS', 900, 1120);
+  var sideQuote = new THREE.Mesh(new THREE.PlaneGeometry(H * 0.88 * (900 / 1120), H * 0.88), new THREE.MeshBasicMaterial({ map: sideTex, transparent: true }));
+  sideQuote.position.set(-W / 2 + 0.03, H * 0.48, 0);
   sideQuote.rotation.y = Math.PI / 2;
   scene.add(sideQuote);
+
+  var thirdTex = makePhotoQuoteTexture('images/teddy-ropes-lean.jpg', 'WHEN YOU HAVE THE TRUST OF A FIGHTER', 1200, 750);
+  var thirdQuote = new THREE.Mesh(new THREE.PlaneGeometry(4.6, 2.875), new THREE.MeshBasicMaterial({ map: thirdTex, transparent: true }));
+  thirdQuote.position.set(5.6, 2.3, -1.8);
+  thirdQuote.lookAt(camera.position);
+  scene.add(thirdQuote);
+
+  var fourthTex = makePhotoQuoteTexture('images/teddy-corner-flags.jpg', 'BOXING IS LIKE A COCKROACH', 1200, 750);
+  var fourthQuote = new THREE.Mesh(new THREE.PlaneGeometry(4.6, 2.875), new THREE.MeshBasicMaterial({ map: fourthTex, transparent: true }));
+  fourthQuote.position.set(-1.8, 2.2, 4.6);
+  fourthQuote.lookAt(camera.position);
+  scene.add(fourthQuote);
 
   var stations = [
     { n: 1, x: -5, z: -3.5 }, { n: 2, x: -2.5, z: -4 }, { n: 9, x: 0, z: -3.5 }, { n: 8, x: 3, z: -3 },
@@ -891,8 +972,8 @@
         fill.color.set(0xfff4e0);
         ambient.intensity = 2.6;
         floorMat.color.set(0x1c1712);
-        wallMat.color.set(0x170f0a);
-        sideWallMat.color.set(0x170f0a);
+        wallMat.color.set(0x030201);
+        sideWallMat.color.set(0x030201);
         trainerMat.color.set(0xcc0000);
         blockMat.color.set(0x2a231a);
       }
