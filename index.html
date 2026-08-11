@@ -418,6 +418,14 @@
       </ul>
     </div>
     <p style="margin-bottom:0">There's real precedent for Teddy partnering externally like this — he already has an official Boxraw apparel line and already licenses instructional content to third-party retailers (BJJ Fanatics, Zengu). This isn't unprecedented, but nothing public addresses third-party app bundling specifically, so it needs a direct conversation with his team, not an assumption.</p>
+
+    <div class="card">
+      <h3 style="margin-top:0">One feature worth pulling out on its own: fight-prediction reports</h3>
+      <p>The "fight picks with expert breakdowns" line above isn't a hypothetical feature — it's real, structured content Teddy already publishes, and it already draws real public engagement tied specifically to that format, not just to his name generally. His own Instagram (<b>@teddy_atlas</b>, verified account, 213K followers — confirmed directly, 2026-08-11) posted about the Callum Walsh vs. Tyler Denny fight (Dublin, August 2026): his report on The Ropes predicted Walsh to win by decision, warned Walsh might get caught coming in early, and forecast head clashes — all of which happened, including an early clash that left Walsh fighting through a damaged eye on the way to a real, confirmed unanimous-decision win. Teddy's own caption called it "9-0 in the last month." The post drew 215 likes and 3 comments within a day of going up (confirmed directly, 2026-08-11) — real, current numbers, not an estimate.</p>
+      <p><b>Self-reported, not audited:</b> that win streak is Teddy's own claim in his own caption, not an independently tracked record — a call, not a sourced number, the same caveat this page applies to its own pricing estimates elsewhere. The post and its engagement are real and verifiable; the accuracy record behind it isn't independently confirmed.</p>
+      <p><b>Why this earns an exception to "bundle, don't rebuild":</b> the recommendation above — bundle access to teddyatlasboxing.com rather than recreate its features — still holds for the platform as a whole. But this one format has already proven, on its own, that it drives real attention. That's worth building as a distinct, named, premium feature natively inside the gym's own Atlas App, not just a link out to a separate site members have to leave the app to use.</p>
+      <p style="margin-bottom:0"><b>Not designed yet.</b> The <i>premium-tab-concept.html</i> mockup already sketches a "Fight Picks" screen pulling this feature in-app (Slot 2 of 3) — a real starting point, not a finished spec. Making the report format itself — the structured, scored breakdown, not just a picks list — a headline feature needs real product/UX work beyond that sketch, plus a direct conversation with Teddy's team about exposing this specific report format inside a second app when it currently lives only inside teddyatlasboxing.com.</p>
+    </div>
   </section>
 
   <section id="words">
@@ -984,21 +992,83 @@
     return tex;
   }
 
-  function makeLabelTexture(text) {
+  function makeStationLabelTexture(n, name) {
     var canvas = document.createElement('canvas');
-    canvas.width = 256; canvas.height = 256;
+    canvas.width = 320; canvas.height = 200;
     var ctx = canvas.getContext('2d');
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.font = '900 140px Impact, sans-serif';
+    ctx.font = '900 108px Impact, sans-serif';
     ctx.fillStyle = '#f2ede4';
-    ctx.fillText(text, 128, 140);
+    ctx.fillText(String(n), 160, 82);
+    ctx.font = '700 32px Arial, sans-serif';
+    ctx.fillStyle = '#e8342a';
+    ctx.fillText(name.toUpperCase(), 160, 166);
     var tex = new THREE.CanvasTexture(canvas);
     tex.colorSpace = THREE.SRGBColorSpace;
     return tex;
   }
 
-  var floorMat = new THREE.MeshStandardMaterial({ color: 0x1c1712, roughness: 0.9 });
+  function makeSignTexture(names) {
+    var w = 900, h = 1200;
+    var canvas = document.createElement('canvas');
+    canvas.width = w; canvas.height = h;
+    var ctx = canvas.getContext('2d');
+    var bg = ctx.createLinearGradient(0, 0, 0, h);
+    bg.addColorStop(0, '#181119');
+    bg.addColorStop(1, '#05030a');
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = 'rgba(232,52,42,0.85)';
+    ctx.lineWidth = 10;
+    ctx.strokeRect(20, 20, w - 40, h - 40);
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#e8342a';
+    ctx.font = '900 68px Impact, sans-serif';
+    ctx.fillText('THE ATLAS WAY', w / 2, 110);
+    ctx.font = '700 28px Arial, sans-serif';
+    ctx.fillStyle = '#9c948a';
+    ctx.fillText('THE CIRCUIT — 10 ROUNDS', w / 2, 162);
+    ctx.textAlign = 'left';
+    var startY = 250, lineH = 92;
+    names.forEach(function (name, i) {
+      var y = startY + i * lineH;
+      ctx.font = '900 52px Impact, sans-serif';
+      ctx.fillStyle = '#e8342a';
+      ctx.fillText((i + 1 < 10 ? '0' : '') + (i + 1), 70, y);
+      ctx.font = '700 38px Arial, sans-serif';
+      ctx.fillStyle = '#f2ede4';
+      ctx.fillText(name.toUpperCase(), 170, y);
+    });
+    var tex = new THREE.CanvasTexture(canvas);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    return tex;
+  }
+
+  function makeMatTexture() {
+    var canvas = document.createElement('canvas');
+    canvas.width = 256; canvas.height = 256;
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#1c1712';
+    ctx.fillRect(0, 0, 256, 256);
+    ctx.strokeStyle = 'rgba(0,0,0,0.55)';
+    ctx.lineWidth = 6;
+    ctx.strokeRect(3, 3, 250, 250);
+    ctx.strokeStyle = 'rgba(0,0,0,0.32)';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(128, 0); ctx.lineTo(128, 256);
+    ctx.moveTo(0, 128); ctx.lineTo(256, 128);
+    ctx.stroke();
+    var tex = new THREE.CanvasTexture(canvas);
+    tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+    tex.repeat.set(W / 2, D / 2);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    return tex;
+  }
+
+  var matTex = makeMatTexture();
+  var floorMat = new THREE.MeshStandardMaterial({ color: 0x1c1712, roughness: 0.9, map: matTex });
   var floor = new THREE.Mesh(new THREE.PlaneGeometry(W, D), floorMat);
   floor.rotation.x = -Math.PI / 2;
   scene.add(floor);
@@ -1049,22 +1119,72 @@
   fourthQuote.rotation.y = Math.PI;
   scene.add(fourthQuote);
 
-  var stations = [
-    { n: 1, x: -5, z: -3.5 }, { n: 2, x: -2.5, z: -4 }, { n: 9, x: 0, z: -3.5 }, { n: 8, x: 3, z: -3 },
-    { n: 3, x: -5.5, z: 0 }, { n: 7, x: 5.5, z: 1 },
-    { n: 4, x: -4, z: 3.5 }, { n: 6, x: 4, z: 3.5 }, { n: 5, x: 0, z: 4 }
-  ];
+  // Entrance sign — "a sign at the entrance works like a menu," lists every station, "The Atlas Way"
+  var signTex = makeSignTexture(['Legs', 'Willy', 'Defense', 'Shadow Boxing', 'The Rope', 'Resistance', 'Road Work', 'Speed', 'Pads', 'Final Round']);
+  var signMesh = new THREE.Mesh(new THREE.PlaneGeometry(H * 0.85 * (900 / 1200), H * 0.85), new THREE.MeshBasicMaterial({ map: signTex, transparent: true }));
+  signMesh.position.set(4.6, H * 0.48, D / 2 - 0.03);
+  signMesh.rotation.y = Math.PI;
+  scene.add(signMesh);
+
+  // The real 10-Round circuit, in order — see "Format — The Circuit". Laid out around the
+  // central ring rather than the old 9-marker scatter (that was a leftover from the
+  // 9Round-copied placeholder draft and was missing Round 10 entirely).
+  var STATION_NAMES = ['Legs', 'Willy', 'Defense', 'Shadow Boxing', 'The Rope', 'Resistance', 'Road Work', 'Speed', 'Pads', 'Final Round'];
+  var stations = STATION_NAMES.map(function (name, i) {
+    var angle = (i / STATION_NAMES.length) * Math.PI * 2 + Math.PI / 15;
+    return { n: i + 1, name: name, x: Math.cos(angle) * 5.0, z: Math.sin(angle) * 3.8 };
+  });
   var blockMat = new THREE.MeshStandardMaterial({ color: 0x2a231a, roughness: 0.7 });
+  var stationLineMat = new THREE.LineBasicMaterial({ color: 0xcc0000 });
   stations.forEach(function (s) {
     var geo = new THREE.CylinderGeometry(0.5, 0.5, 0.6, 24);
     var mesh = new THREE.Mesh(geo, blockMat);
     mesh.position.set(s.x, 0.3, s.z);
     scene.add(mesh);
-    var label = new THREE.Sprite(new THREE.SpriteMaterial({ map: makeLabelTexture(String(s.n)), transparent: true }));
-    label.scale.set(1, 1, 1);
-    label.position.set(s.x, 0.85, s.z);
+    var label = new THREE.Sprite(new THREE.SpriteMaterial({ map: makeStationLabelTexture(s.n, s.name), transparent: true }));
+    label.scale.set(1.44, 0.9, 1);
+    label.position.set(s.x, 0.95, s.z);
     scene.add(label);
+
+    // Each station is "either roped off or outlined with painted lines marking its space" —
+    // painted floor outline, simpler than roping all ten and matches the page's red/UV palette.
+    var half = 0.85;
+    var pts = [
+      new THREE.Vector3(s.x - half, 0.015, s.z - half),
+      new THREE.Vector3(s.x + half, 0.015, s.z - half),
+      new THREE.Vector3(s.x + half, 0.015, s.z + half),
+      new THREE.Vector3(s.x - half, 0.015, s.z + half),
+      new THREE.Vector3(s.x - half, 0.015, s.z - half)
+    ];
+    var outline = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), stationLineMat);
+    scene.add(outline);
   });
+
+  // Center ring — "a smaller-than-regulation boxing ring in the middle of the room is a real
+  // possibility, not a requirement." Four posts + roped sides around the existing floor apron.
+  var ringHalf = 1.5;
+  var ringCorners = [[ringHalf, ringHalf], [ringHalf, -ringHalf], [-ringHalf, -ringHalf], [-ringHalf, ringHalf]];
+  var postMat = new THREE.MeshStandardMaterial({ color: 0xcc0000, roughness: 0.5 });
+  var ropeMat = new THREE.MeshStandardMaterial({ color: 0xf2ede4, roughness: 0.4 });
+  var ringGroup = new THREE.Group();
+  ringCorners.forEach(function (c) {
+    var post = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.95, 12), postMat);
+    post.position.set(c[0], 0.475, c[1]);
+    ringGroup.add(post);
+  });
+  [0.28, 0.52, 0.76].forEach(function (y) {
+    [ringHalf, -ringHalf].forEach(function (z) {
+      var rope = new THREE.Mesh(new THREE.BoxGeometry(ringHalf * 2, 0.035, 0.035), ropeMat);
+      rope.position.set(0, y, z);
+      ringGroup.add(rope);
+    });
+    [ringHalf, -ringHalf].forEach(function (x) {
+      var rope = new THREE.Mesh(new THREE.BoxGeometry(0.035, 0.035, ringHalf * 2), ropeMat);
+      rope.position.set(x, y, 0);
+      ringGroup.add(rope);
+    });
+  });
+  scene.add(ringGroup);
 
   var trainerMat = new THREE.MeshBasicMaterial({ color: 0xcc0000, side: THREE.DoubleSide });
   var trainerRing = new THREE.Mesh(new THREE.RingGeometry(1.6, 1.72, 4), trainerMat);
@@ -1072,6 +1192,17 @@
   trainerRing.rotation.z = Math.PI / 4;
   trainerRing.position.set(0, 0.02, 0);
   scene.add(trainerRing);
+
+  // Elevated platform, back of room — "where Teddy addresses the whole floor directly." Set
+  // tight against the back wall, clear of the station ring around it.
+  var platformMat = new THREE.MeshStandardMaterial({ color: 0x2a231a, roughness: 0.65 });
+  var platform = new THREE.Mesh(new THREE.BoxGeometry(3.0, 0.32, 0.6), platformMat);
+  platform.position.set(0, 0.16, -5.12);
+  scene.add(platform);
+  var platformTrimMat = new THREE.MeshBasicMaterial({ color: 0xcc0000 });
+  var platformTrim = new THREE.Mesh(new THREE.BoxGeometry(3.1, 0.04, 0.7), platformTrimMat);
+  platformTrim.position.set(0, 0.005, -5.12);
+  scene.add(platformTrim);
 
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.3;
@@ -1122,6 +1253,9 @@
         frontWallMat.color.set(0x0f0824);
         trainerMat.color.set(0x9b3fe0);
         blockMat.color.set(0x160f2e);
+        stationLineMat.color.set(0x9b3fe0);
+        postMat.color.set(0x9b3fe0);
+        platformTrimMat.color.set(0x9b3fe0);
       } else {
         key.color.set(0xffddaa);
         fill.color.set(0xfff4e0);
@@ -1133,6 +1267,9 @@
         frontWallMat.color.set(0x030201);
         trainerMat.color.set(0xcc0000);
         blockMat.color.set(0x2a231a);
+        stationLineMat.color.set(0xcc0000);
+        postMat.color.set(0xcc0000);
+        platformTrimMat.color.set(0xcc0000);
       }
     });
     var defaultPill = isoToggle.querySelector('[data-mode="uv"]');
