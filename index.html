@@ -75,6 +75,12 @@
 
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:18px 0}
 
+  .acc > summary{list-style:none;cursor:pointer;font-size:16px;font-weight:800;color:var(--ink);margin:0;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .acc > summary::-webkit-details-marker{display:none}
+  .acc > summary::after{content:'Show \25B8';font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--brand-red);white-space:nowrap;flex-shrink:0}
+  .acc[open] > summary::after{content:'Hide \25BE'}
+  .acc > summary + *{margin-top:16px}
+
   .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 20px;position:relative}
   table{width:100%;min-width:520px;border-collapse:collapse;font-size:14.5px}
   @media (max-width:640px){
@@ -323,8 +329,8 @@
       <p style="margin-bottom:0">A smaller-than-regulation boxing ring in the middle of the room is a real possibility, not a requirement — and it's fully modeled already — four posts and roped sides around the existing floor apron, right in the middle of the circuit. See it live in <a href="#vibe" style="color:var(--brand-red);text-decoration:none;font-weight:700">Look &amp; Vibe</a>. Nothing new needed here.</p>
     </div>
 
-    <div class="card">
-      <h3 style="margin-top:0">Recommendation: Central Avenue, Jersey City Heights</h3>
+    <details class="card acc">
+      <summary>Recommendation: Central Avenue, Jersey City Heights</summary>
       <p>This corridor hits every criterion with real evidence behind it, not just proximity math.</p>
       <ul>
         <li><b>Available now:</b> 298 Central Ave (3,000 sqft, ~$6,000/mo) and 367 Central Ave (3,250–4,250 sqft) — both currently listed, both in range.</li>
@@ -335,10 +341,10 @@
       <p class="callout"><b>Alternative:</b> 1 PATH Plaza has retail space literally inside a newly renovated PATH station, but the available units run larger (5,100+ sqft ground floor) — oversized for the target and further from the existing gym cluster.</p>
       <p><b>Also checked: Hoboken and the waterfront.</b> Real listings found there too (e.g. 74 Hudson St, 3,050 sqft at $78/sqft/yr), and Hoboken's transit is genuinely better — a true multimodal hub (PATH, NJ Transit, ferry, light rail all in one terminal, vs. Central Ave's HBLR-only access). But it runs roughly <b>2.7–3.3x the rent</b> of Central Ave (likely $16,000–20,000/mo for a comparable space vs. $6,000/mo) and its combat-sports presence is thinner and more boutique-fitness (Rumble Boxing, CKO) rather than a real boxing/MMA cluster. Central Ave stays the pick — the rent gap is too large to justify for an unproven first location. Hoboken is worth revisiting later if this location succeeds and a second one makes sense.</p>
       <p style="margin-bottom:0"><b>Next step:</b> this is as far as remote research can responsibly take it — touring 298/367 Central Ave with a broker is the actual next move.</p>
-    </div>
+    </details>
 
-    <div class="card">
-      <h3 style="margin-top:0">Teddy Jr's own picks — Edgewater, Red Bank, Staten Island</h3>
+    <details class="card acc">
+      <summary>Teddy Jr's own picks — Edgewater, Red Bank, Staten Island</summary>
       <p>Teddy Jr's own picks: Edgewater NJ, Red Bank NJ, Jersey City NJ, and Staten Island NY. Jersey City validates the pick above — here's honest research on the other three, ranked, not just validated across the board.</p>
       <div class="table-scroll"><table>
         <tr><th>Area</th><th>Real estate</th><th>Fight-gym presence</th><th>NYC transit</th></tr>
@@ -347,7 +353,7 @@
         <tr><td>Staten Island, NY</td><td>No live listing pulled yet — real broker to call: <a href="https://casandra.properties/" target="_blank" rel="noopener">Casandra Properties</a>, (718) 720-0126, Staten Island–based, 40+ years in the market</td><td>Deepest bench of serious gyms (Ironhand, Iron Shepherd, Rustam's) — but that's also saturation risk</td><td>Free ferry, ~25 min — but only if the site is near St. George; most of the borough isn't</td></tr>
       </table></div>
       <p style="margin-bottom:0"><b>Honest read:</b> Jersey City Heights stays the pick. If it falls through, <b>Edgewater is the clear #2</b> — fastest NYC connection, real comps, proven boxing-specific demand. Red Bank is #3 — cheapest, but furthest from the city. Staten Island is worth keeping on the list since Teddy Jr named it, but shouldn't get real diligence time before the other two are fully vetted — and if it does move forward, the entire NY legal section below applies instead of NJ's.</p>
-    </div>
+    </details>
 
   </section>
 
@@ -560,11 +566,11 @@
   <section id="testing">
     <h2>Testing It First — Pop-Up Clinics</h2>
     <p>Before signing any lease: run a pop-up clinic at a gym Teddy already has real ties to, to build buzz and prove demand.</p>
-    <div class="card">
-      <h3 style="margin-top:0">Gleason's Gym — the strongest real lead</h3>
+    <details class="card acc">
+      <summary>Gleason's Gym — the strongest real lead</summary>
       <p>Brooklyn (DUMBO), the oldest active boxing gym in the US, since 1937. This isn't a cold outreach target — Teddy has a genuine, decades-documented history there, training fighters under the Cus D'Amato lineage going back to the 1980s. Gleason's also already runs a recurring guest-clinic program (Personal Trainer's Clinic, All Female Boxing Clinic, Masters Sparring Clinic) in a proven weekend format — 2 days, ~8 classes, priced as a package rather than hourly rental.</p>
       <p style="margin-bottom:0">Typical cost for a name-trainer weekend clinic runs roughly $400–500/attendee, or hourly space rental elsewhere in NYC runs $250–1,000+/hr for name-brand gyms. A 6–12 week pre-sale waitlist campaign (100–150 "founding members" at a discount) is standard practice for validating real demand before committing to a lease.</p>
-    </div>
+    </details>
   </section>
 
   <section id="legal">
@@ -584,19 +590,19 @@
       <li><b>Tour and sign the lease</b> (298/367 Central Ave or wherever's chosen), then get the Jersey City Commerce Division business license and Certificate of Occupancy for the fit-out.</li>
     </ol>
 
-    <div class="card">
-      <h3 style="margin-top:0">NJ Health Club Services Act — a real requirement, not optional</h3>
+    <details class="card acc">
+      <summary>NJ Health Club Services Act — a real requirement, not optional</summary>
       <p>New Jersey has a specific law (N.J.S.A. 56:8-39) covering any business devoting 40%+ of its space to fitness services — this gym qualifies. It requires registering with the NJ Division of Consumer Affairs before opening, and if memberships run longer than 3 months, posting a surety bond (10% of prior-year gross income, $25K–$50K floor/ceiling). Members also get a mandatory 3-day cancellation right. A month-to-month membership model with no long-term contracts sidesteps the bonding requirement — worth deciding the membership structure with this in mind, not as an afterthought.</p>
       <p style="margin-bottom:0">Jersey City also requires a separate local Commerce Division business license beyond state registration, plus a Certificate of Occupancy for the fit-out.</p>
-    </div>
+    </details>
 
-    <div class="card">
-      <h3 style="margin-top:0">Cancellation has to stay online, not in-person-only</h3>
+    <details class="card acc">
+      <summary>Cancellation has to stay online, not in-person-only</summary>
       <p style="margin-bottom:0">New Jersey passed a law (effective January 2024, signed by Gov. Murphy) specifically banning health clubs from requiring an in-person visit to cancel when the club offers online sign-up — a member has to be able to cancel the same way they signed up. Since this plan already assumes online/app sign-up, an in-person-only cancellation policy would likely violate that law directly. This is why that policy isn't built into the plan as requested — worth a real conversation with the NJ attorney above before locking in cancellation terms, rather than defaulting to in-person-only.</p>
-    </div>
+    </details>
 
-    <div class="card">
-      <h3 style="margin-top:0">If it's Staten Island instead — NY rules are meaningfully different, not just a state-name swap</h3>
+    <details class="card acc">
+      <summary>If it's Staten Island instead — NY rules are meaningfully different, not just a state-name swap</summary>
       <div class="table-scroll"><table>
         <tr><th>Requirement</th><th>New York</th><th>Confidence</th></tr>
         <tr><td>LLC formation</td><td>$200 filing fee, NY Dept of State — plus a real extra step NJ doesn't have: publish notice in 2 newspapers designated by the county clerk for 6 consecutive weeks (LLC Law §206), then file a Certificate of Publication within 120 days ($50 fee)</td><td>High — confirmed directly from <a href="https://dos.ny.gov/forming-limited-liability-company-new-york" target="_blank" rel="noopener">dos.ny.gov</a></td></tr>
@@ -606,7 +612,7 @@
         <tr><td>NYC Dept of Buildings permitting speed vs. NJ municipal permitting</td><td>Reputation is that NYC DOB is slower/more expensive, but that wasn't verified with a primary source this pass</td><td>Low — treat as anecdotal, not a planning assumption</td></tr>
       </table></div>
       <p style="margin-bottom:0">Bottom line: the NY bonding requirement alone ($50–150K) is 2–3x NJ's ($25–50K), and the newspaper-publication step is a real cost and timeline item that simply doesn't exist in NJ. If Staten Island ever moves past "worth keeping on the list," redo this whole legal section for NY specifically rather than assuming the NJ steps transfer over.</p>
-    </div>
+    </details>
 
     <h3>The same steps, for New York — if it's Staten Island instead of NJ</h3>
     <ol>
@@ -621,8 +627,8 @@
       <li><b>Tour and sign the lease</b>, then get the NYC business license (Dept of Consumer and Worker Protection) and Certificate of Occupancy (NYC Dept of Buildings) for the fit-out.</li>
     </ol>
 
-    <div class="card">
-      <h3 style="margin-top:0">Equipment budget — gear, flooring, iPads</h3>
+    <details class="card acc">
+      <summary>Equipment budget — gear, flooring, iPads</summary>
       <div class="table-scroll"><table>
         <tr><th>Item</th><th>Estimate</th></tr>
         <tr><td>Rubber gym flooring, installed</td><td>$9,000–18,000</td></tr>
@@ -635,10 +641,10 @@
         <tr><td>Misc — jump ropes, ab mats, gloves/wraps for sale, first aid, locker room basics</td><td>$2,000–5,000</td></tr>
       </table></div>
       <p style="margin-bottom:0"><b>Equipment/furnishing total: roughly $28,000–62,000.</b> Phasing this — opening with fewer stations fully equipped and adding the rest as revenue comes in — is a real way to reduce the upfront number.</p>
-    </div>
+    </details>
 
-    <div class="card">
-      <h3 style="margin-top:0">Construction buildout — the number that actually matters most</h3>
+    <details class="card acc">
+      <summary>Construction buildout — the number that actually matters most</summary>
       <p>This is separate from equipment above, and it's the single biggest unknown in the whole budget. Actual commercial buildout — electrical, HVAC, plumbing, walls — for a fitness space this size typically runs <b>$50–150 per sqft</b>, which on 3,000 sqft is <b>$150,000–$240,000</b>. That's before equipment.</p>
       <ul>
         <li>12 months' rent: ~$72,000</li>
@@ -648,10 +654,10 @@
         <li>AED + staff certification, utility deposits, ADA compliance, security cameras + install, background checks (see below): $11,650–45,125</li>
       </ul>
       <p style="margin-bottom:0"><b>Full range: roughly $286,150–461,625</b> — meaningfully more than $250K if the space needs real construction. The actual number depends entirely on the shell condition: if 298/367 Central Ave was previously a gym or dance studio (fitness-ready electrical/flooring already in place), buildout could land far below this range. If it's raw retail or office space, it likely exceeds $250K without a landlord tenant-improvement allowance or more capital. <b>Getting a real contractor's buildout quote for the specific space is the single most important next step</b> — bigger than any other number in this plan.</p>
-    </div>
+    </details>
 
-    <div class="card">
-      <h3 style="margin-top:0">A realistic path to bring this closer to $250K</h3>
+    <details class="card acc">
+      <summary>A realistic path to bring this closer to $250K</summary>
       <p>The $274,500–416,500 range above assumes a raw shell and a full day-one 9-station build. Four real levers compress that, each with a sourced or clearly-flagged confidence level:</p>
       <div class="table-scroll"><table>
         <tr><th>Lever</th><th>Effect</th><th>Confidence</th></tr>
@@ -662,10 +668,10 @@
       </table></div>
       <p><b>Compressed range if the first three levers land: roughly $158,150–$289,625 total</b> (12 months' rent $72,000 + deposit $18,000–36,000 + legal $6,500 + phased equipment on the smaller footprint $20,000–40,000 + net buildout after TI credit $30,000–90,000 + AED/utility deposits/ADA/cameras/background checks $11,650–45,125). That's real progress from $286,150–461,625, and the low end fits inside $250K with room left over — the ADA range is the single biggest swing factor in whether it does.</p>
       <p style="margin-bottom:0">Getting the whole thing near $125K in construction/equipment specifically would require best-case results on every lever at once — not something to plan around, but not impossible either if 298/367 Central Ave turns out to have been a fitness space before. The honest move is the same as above: <b>get a real contractor's quote and ask the landlord about a TI allowance before finalizing anything.</b></p>
-    </div>
+    </details>
 
-    <div class="card">
-      <h3 style="margin-top:0">One-time costs folded into the buildout number above</h3>
+    <details class="card acc">
+      <summary>One-time costs folded into the buildout number above</summary>
       <p>These weren't in earlier drafts of the buildout total — they're now included in the $286,150–461,625 (and compressed $158,150–289,625) ranges above, not sitting off to the side.</p>
       <div class="table-scroll"><table>
         <tr><th>Item</th><th>Cost</th><th>Confidence</th></tr>
@@ -676,10 +682,10 @@
         <tr><td>Background checks (initial ~5 hires)</td><td>$150–475 — Checkr's own pricing, $30–95/report</td><td>High — vendor's own published pricing page</td></tr>
       </table></div>
       <p style="margin-bottom:0">Total added: <b>$11,650–45,125</b>.</p>
-    </div>
+    </details>
 
-    <div class="card">
-      <h3 style="margin-top:0">Monthly operating costs — feeds the profit estimate above</h3>
+    <details class="card acc">
+      <summary>Monthly operating costs — feeds the profit estimate above</summary>
       <p>Recurring costs, separate from the one-time buildout above. These are what get subtracted from monthly revenue.</p>
       <div class="table-scroll"><table>
         <tr><th>Item</th><th>Monthly cost</th><th>Confidence</th></tr>
@@ -695,10 +701,10 @@
         <div class="photo-card"><img class="lightbox-trigger" src="images/zenplanner-screenshot.jpg" alt="Real screenshot of Zen Planner's payment automation screen" loading="lazy" style="aspect-ratio:3/4;object-position:top"><span>Zen Planner — real product screenshot, automated billing</span></div>
       </div>
       <p style="margin-bottom:0">Point-estimate total (excluding workers' comp, which needs a payroll figure first): <b>~$6,680/mo</b>, real range roughly $6,300–7,900/mo.</p>
-    </div>
+    </details>
 
-    <div class="card">
-      <h3 style="margin-top:0">Legal documents — the actual links, and an honest answer on automation</h3>
+    <details class="card acc">
+      <summary>Legal documents — the actual links, and an honest answer on automation</summary>
       <p><b>Honest verdict first:</b> there's no real way to auto-fill these. Every core NJ/Jersey City filing is a live government web form, not a downloadable fillable PDF, and none of them have a public API — checked GitHub directly, nothing exists for this. The AI-branded services (Rocket Lawyer, Firstbase, ZenBusiness, Clerky) are template generators with a human filing it for you, not automation — and for a plain single-state LLC like this, Reddit's small-business consensus is blunt: you don't need one, it's a 2-page form.</p>
       <div class="table-scroll"><table>
         <tr><th>Filing</th><th>Where</th></tr>
@@ -709,7 +715,7 @@
         <tr><td>Jersey City business license + Certificate of Occupancy</td><td>jcnj.org/permitportal (GovPilot) — Commerce Division for the license, Construction Code for the CO, plus a required NJ Division of Fire Safety inspection</td></tr>
       </table></div>
       <p style="margin-bottom:0">What's actually useful here: a pre-filled checklist of the exact values needed across every form (LLC name, registered agent name/address, NAICS code, business purpose language, principal address) so it's copy-paste into each portal instead of re-deriving it five times. Want that built as its own document once the name and registered agent are settled?</p>
-    </div>
+    </details>
 
     <h3>Social media — what Teddy already has, and non-obvious ways to use it</h3>
     <div class="stat-row">
@@ -728,8 +734,8 @@
       <li><b>Let AI do a first pass on his paid video evaluations</b> (already a feature on his existing app) — his time is the bottleneck on that premium tier; AI flagging the priority issues first lets his limited hours go further.</li>
     </ul>
 
-    <div class="card">
-      <h3 style="margin-top:0">Actual tools for the above — not just ideas</h3>
+    <details class="card acc">
+      <summary>Actual tools for the above — not just ideas</summary>
       <div class="table-scroll"><table>
         <tr><th>Idea</th><th>Real tool to use</th></tr>
         <tr><td>Archive-mining / clipping</td><td>Descript or Otter.ai for transcription; Opus Clip or Vizard for auto-generating short clips from long-form video</td></tr>
@@ -739,15 +745,15 @@
         <tr><td>Scheduling/posting once content exists</td><td>Buffer or Later — standard, cheap, nothing fancy needed here</td></tr>
       </table></div>
       <p style="margin-bottom:0">Honest note: most of the real value here is the archive-mining idea (turning 1,800 existing videos into new content) — that's the one worth actually starting first, the rest are lower priority.</p>
-    </div>
+    </details>
   </section>
 
   <section id="revenue">
     <h2>Pricing, Revenue &amp; Timeline</h2>
     <p class="callout">9Round's own franchise disclosure document does not include an Item 19 Financial Performance Representation — there's no official revenue benchmark to point to. Numbers below are built from direct competitor pricing plus industry break-even data, with confidence noted on each. Where something couldn't be sourced, that's said directly instead of guessed.</p>
 
-    <div class="card">
-      <h3 style="margin-top:0">Bottom line: what's actually left over each month</h3>
+    <details class="card acc">
+      <summary>Bottom line: what's actually left over each month</summary>
       <div class="table-scroll"><table>
         <tr><th>Scenario</th><th>Revenue (membership + merch)</th><th>Rent + monthly opex</th><th>Left over before payroll</th></tr>
         <tr><td>Conservative launch</td><td>~$12,850/mo</td><td>~$6,680/mo</td><td>~$6,170/mo</td></tr>
@@ -756,10 +762,10 @@
       </table></div>
       <p><b>This is not final profit</b> — it's revenue minus rent and the fixed operating costs below (software, insurance, trash, alarm, music licensing). The one number missing from this page entirely is <b>staff payroll</b> (front desk, part-time trainers) — nothing here estimates it yet, and for a business like this it's typically the single largest recurring cost after rent. Real profit = the "left over" figures above, minus payroll, minus workers' comp (which is itself a % of that payroll — see the operating-costs table below).</p>
       <p style="margin-bottom:0">One-time cash needed to open: <b>$158,150–289,625</b> compressed (see the buildout breakdown below), or <b>$286,150–461,625</b> full scope. The low end of the compressed range fits inside $250K.</p>
-    </div>
+    </details>
 
-    <div class="card">
-      <h3 style="margin-top:0">What direct competitors actually charge</h3>
+    <details class="card acc">
+      <summary>What direct competitors actually charge</summary>
       <div class="table-scroll"><table>
         <tr><th>Studio</th><th>Tier</th><th>Price</th><th>Confidence</th></tr>
         <tr><td>Rumble Boxing, Jersey City</td><td>Standard monthly</td><td>$189/mo (~$170 w/ promo)</td><td>High — real JC location, reported via NJ.com</td></tr>
@@ -771,10 +777,10 @@
         <tr><td>9Round (aggregator estimates)</td><td>Standard</td><td>$29–159/mo — sources conflict</td><td>Low — 9Round discloses no pricing itself</td></tr>
       </table></div>
       <p style="margin-bottom:0"><b>Suggested pricing for Atlas World</b> (a call, not a sourced number — positioned between Title's unlimited tier and Rumble's real JC price, since the AI punch-tracking tech and Teddy Jr's direct coaching are real differentiators neither competitor has): founding member (early, capped cohort) $99–119/mo unlimited · standard unlimited $159–179/mo · 8x/month $99–119/mo · drop-in $30–35 · 5-/10-class packs $125–150 / $220–240.</p>
-    </div>
+    </details>
 
-    <div class="card">
-      <h3 style="margin-top:0">Revenue — tied to real member counts, not one guess</h3>
+    <details class="card acc">
+      <summary>Revenue — tied to real member counts, not one guess</summary>
       <div class="table-scroll"><table>
         <tr><th>Scenario</th><th>Members</th><th>Blended price/member/mo</th><th>Monthly revenue</th></tr>
         <tr><td>Conservative launch (months 1–6)</td><td>60–100</td><td>$140–160</td><td>$8,400–16,000</td></tr>
@@ -788,10 +794,10 @@
       </div>
       <p style="margin-bottom:0">Bars show the midpoint of each range above, not the full spread — see the table for the honest low–high.</p>
       <p style="margin-bottom:0">Stabilized annualized: roughly <b>$360,000–612,000/yr</b>. These are built from boutique-studio break-even data (most break even around 75–150 members, or fewer at premium pricing) and typical ~70–80% annual retention — not from a sourced capacity model for this exact format. 9Round's drop-in-anytime structure (no fixed class times, unlike Rumble/Title) means capacity is limited by station count and hours open rather than class slots, but there's no sourced number for realistic daily throughput at this size — a real gap, worth testing directly once the pop-up clinics run.</p>
-    </div>
+    </details>
 
-    <div class="card">
-      <h3 style="margin-top:0">Merch & retail — a second real revenue line, not hypothetical</h3>
+    <details class="card acc">
+      <summary>Merch & retail — a second real revenue line, not hypothetical</summary>
       <p>Not invented: Teddy already has real branded apparel ("We Are Firemen. We Live In The Heat." hoodies) and an existing $97 "Fundamentals of Boxing" digital product — a physical location adds a retail line to sell what already exists, not a new product to develop. Firemen-themed apparel plus original shirts with inspirational sayings lines up directly with this. They floated Boxraw as a possible partner — real precedent already exists for that: Teddy already has an official "36 By Teddy Atlas" collection with Boxraw today.</p>
       <div class="table-scroll"><table>
         <tr><th>Scenario</th><th>Merch/retail revenue</th></tr>
@@ -800,10 +806,10 @@
         <tr><td>Stabilized</td><td>$1,400–2,000+/mo</td></tr>
       </table></div>
       <p style="margin-bottom:0">Sourced range ($500–2,000/mo "depending on member count and product selection") is a general boutique-gym benchmark, not specific to this studio or to Teddy's following — his existing audience (205K Instagram, 332K YouTube) is meaningfully larger than a typical independent studio owner's, so the real number could land above this range, but that's upside to test, not something to budget on. Adds roughly <b>$6,000–24,000/yr</b> on top of membership revenue across the three scenarios.</p>
-    </div>
+    </details>
 
-    <div class="card">
-      <h3 style="margin-top:0">Opening timeline — phase by phase</h3>
+    <details class="card acc">
+      <summary>Opening timeline — phase by phase</summary>
       <div class="table-scroll"><table>
         <tr><th>Phase</th><th>Duration</th></tr>
         <tr><td>Lease signed → permit application prep</td><td>1–2 weeks</td></tr>
@@ -816,10 +822,10 @@
       </table></div>
       <p><b>Realistic total: 3.5–6.5 months</b> if permitting goes smoothly. <b>Up to 4–8 months</b> if municipal permitting hits delays — permitting is consistently flagged as the single biggest variable in small retail/personal-service buildout timelines, more than construction itself.</p>
       <p style="margin-bottom:0"><b>One thing to actually call and confirm before finalizing this plan:</b> the NJ Health Club Services Act bond dollar amount and processing turnaround aren't published anywhere online — NJ Consumer Affairs' own page omits the figure. Call the Regulated Business Section directly: <a href="tel:9735046370">(973) 504-6370</a> or <a href="mailto:regulatedbusiness@dca.njoag.gov">regulatedbusiness@dca.njoag.gov</a>.</p>
-    </div>
+    </details>
 
-    <div class="card">
-      <h3 style="margin-top:0">Real fight dates, if one's worth building toward</h3>
+    <details class="card acc">
+      <summary>Real fight dates, if one's worth building toward</summary>
       <p>None of these should be the grand-opening target on their own — the timeline above starts counting from lease signing, which hasn't happened yet, so anything before roughly November 2026 is already too soon for a real buildout. But they're real, dated events worth knowing about, especially the one actually in New Jersey.</p>
       <div class="table-scroll"><table>
         <tr><th>Date</th><th>Event</th><th>Relevance</th></tr>
@@ -830,15 +836,15 @@
         <tr><td>November 2026 (exact date TBA)</td><td>Tyson Fury vs. Anthony Joshua — officially slated for November 2026</td><td>The one worth actually watching. If the lease signs soon and buildout goes smoothly (the 3.5-month fast case), a November opening is aggressive but not impossible — this is the realistic aspirational target, not a promise.</td></tr>
       </table></div>
       <p style="margin-bottom:0">Honest read: given nothing is signed yet, a late-2026 opening tied to the Fury–Joshua card is the best real target to build toward, with the Newark card in September used for pre-launch buzz (pop-up clinic, social content, founding-member waitlist) rather than as the opening itself.</p>
-    </div>
+    </details>
   </section>
 
   <section id="sourcing">
     <h2>Where to Buy It</h2>
     <p>Real vendors, real product pages, real prices — checked directly on 2026-08-12, not estimated. Organized by station, then the room-level items. Every link goes straight to a product or category page that can be ordered from today. These operationalize the equipment budget under <a href="#revenue" style="color:var(--brand-red);text-decoration:none;font-weight:700">Pricing &amp; Revenue</a> — real sources for those ranges, not a separate number.</p>
 
-    <div class="card">
-      <h3 style="margin-top:0">Per station</h3>
+    <details class="card acc">
+      <summary>Per station</summary>
       <div class="table-scroll"><table>
         <tr><th>Round</th><th>Station</th><th>Product</th><th>Price</th><th>Buy</th></tr>
         <tr><td>1</td><td>Legs</td><td>Agility cone set (4-pack)</td><td>$24.99</td><td><a href="https://www.bsnsports.com/p/agility-cone-set/" target="_blank" rel="noopener">BSN Sports</a></td></tr>
@@ -856,10 +862,10 @@
         <tr><td>10</td><td>Final Round (if no ceiling mount)</td><td>Freestanding heavy bag stand, 100 lb capacity</td><td>$139.00–166.99</td><td><a href="https://www.walmart.com/ip/Everlast-Single-Station-Heavy-Bag-Stand/15063341" target="_blank" rel="noopener">Walmart</a></td></tr>
       </table></div>
       <p style="margin-bottom:0">Willy's specific "wall target with the Cus D'Amato numbering system" doesn't have an off-the-shelf match — no retailer sells a pre-numbered version. Likely a generic wall target plus hand-applied numbering, not a single purchase. An honest gap, not a missed search.</p>
-    </div>
+    </details>
 
-    <div class="card">
-      <h3 style="margin-top:0">Room-level</h3>
+    <details class="card acc">
+      <summary>Room-level</summary>
       <div class="table-scroll"><table>
         <tr><th>Item</th><th>Product</th><th>Price</th><th>Buy</th></tr>
         <tr><td>Entrance sign</td><td>Custom printed acrylic/PVC panel</td><td>$6–12/sqft printed — full breakdown under <a href="#space" style="color:var(--brand-red);text-decoration:none;font-weight:700">The Space</a></td><td><a href="https://www.signs.com/acrylic/" target="_blank" rel="noopener">Signs.com</a></td></tr>
@@ -870,7 +876,7 @@
         <tr><td>Round timer (×10, one per station)</td><td>Steel gym interval timer, bell + whistle, 2–3 min rounds</td><td>$74.73 each — that exact listing is currently out of stock, so treat this as a real price point to match, not a live cart-ready link</td><td><a href="https://www.walmart.com/ip/Boxing-Timer-Loud-Bell-Whistle-2-3-Minute-Rounds-15-60-Second-Rest-Steel-Gym-Interval-Timer-Boxing-MMA-Kickboxing-Muay-Thai-Martial-Arts-Home-Gym-8x6/16113418339" target="_blank" rel="noopener">Walmart</a></td></tr>
         <tr><td>Merch</td><td>Bulk screen-printed hoodies/tees</td><td>$3–20/unit depending on quantity and method — full breakdown under <a href="#revenue" style="color:var(--brand-red);text-decoration:none;font-weight:700">Pricing &amp; Revenue</a></td><td><a href="https://www.ooshirts.com/blog/bulk-vs-single-order-t-shirt-printing-cost-guide/" target="_blank" rel="noopener">OOShirts</a></td></tr>
       </table></div>
-    </div>
+    </details>
 
     <p style="margin-bottom:0">Real, checked prices as of 2026-08-12 — but retail prices move, and none of this is a bulk-purchasing quote. Buying 10 of the same interval timer, for instance, should get a real volume discount a single-unit listed price doesn't reflect. A real starting list to price out, not a locked equipment order.</p>
     <div class="fb-widget" data-item-id="plan-sourcing" data-item-type="plan-section" data-label="Where to Buy It"><span class="fb-thumbs"><button type="button" class="fb-btn fb-note-toggle" title="Leave a note">&#9998;</button><button type="button" class="fb-btn fb-up" data-vote="up" title="Good">&#128077;</button><button type="button" class="fb-btn fb-down" data-vote="down" title="Not useful">&#128078;</button></span><div class="fb-note-row" style="display:none;"><textarea class="fb-note-input" placeholder="What should be fixed or looked at here?"></textarea><button type="button" class="fb-note-save">Save note</button></div></div>
