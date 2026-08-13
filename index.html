@@ -410,11 +410,15 @@
     </ol>
 
     <h3>Computer vision — what a camera can actually do</h3>
-    <p>Two very different pieces:</p>
+    <p>Three pieces, at three different stages:</p>
     <ul>
-      <li><b>Punch counting</b> — solved, achievable now. A working prototype already counts punches from real bag-work video using Apple's own on-device camera technology. No custom hardware needed.</li>
-      <li><b>Real technique coaching</b> ("your chin's up," "rotate your hips") — a genuine, unsolved research problem. Even a $5.8M-funded company with a dedicated computer-vision team hasn't shipped this yet. Possible eventually, not a version-one bet.</li>
+      <li><b>Punch counting</b> — done, not a prototype. Live in the app today: a real skeleton-tracking camera feed counts punches during the WORK phase, validated against real gym footage and multiple stress-test clips (fast flurries, dim lighting, two people in frame). Camera-only, no custom hardware.</li>
+      <li><b>Guard-discipline coaching</b> — a real first step into technique feedback, also live: the app flags when a hand drops below guard height for a meaningful share of a round, surfaced on a Form Report screen after every round. Not full technique scoring — a narrow, honest first pass.</li>
+      <li><b>Full technique coaching</b> ("your chin's up," "rotate your hips," scored against ideal form) — still the harder, unsolved bet. Camera-only competitors now ship punch counting and even punch-type classification (jab/cross/hook/uppercut), so that alone is no longer a differentiator. Nobody camera-based has convincingly shipped real-time form scoring; the closest real proof it's not permanently out of reach is a markerless coaching app in a different sport (golf) that scores swing mechanics from a single phone-camera video. Boxing is a harder version of that problem — reactive and continuous, not one repeatable motion — so this stays a later, higher-risk bet, not a version-one one.</li>
     </ul>
+
+    <h3>Beyond the venue — licensing the tracking to other gyms</h3>
+    <p>The tracking needs no custom hardware, just a camera and an iPad — a real structural difference from competitors who require buying a proprietary sensor kit or a dedicated wall-mounted depth sensor. That opens a second use for the same technology beyond this venue: a licensed, branded version sold to other boxing and kickboxing studios that already have the hardware to run it. Nothing found in this category sells camera-only coaching tech to gyms as a product today — every real competitor sells it direct to individual consumers instead.</p>
 
     <h3>Sensors and wearables</h3>
     <p>Custom bag or glove sensors (gamified punch data, à la FightCamp) are real hardware — something that has to be built, tested, and can break or feel janky, which is a genuine cost most software ideas don't carry. Off-the-shelf heart-rate wearables (the MYZONE approach 9Round and Orangetheory actually use) are safer — mature, proven, nothing to build.</p>
